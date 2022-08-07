@@ -1,0 +1,86 @@
+[
+  {
+    "name": "COTY",
+    "logo": "assets/clients/coty.svg"
+  },
+  {
+    "name": "Wella",
+    "logo": "assets/clients/wella.svg"
+  },
+  {
+    "name": "Dr. Oetker",
+    "logo": "assets/clients/dr-oetker.svg"
+  },
+  {
+    "name": "transferGo",
+    "logo": ""
+  },
+  {
+    "name": "X-Team",
+    "logo": ""
+  },
+  {
+    "name": "Cushon",
+    "logo": ""
+  },
+  {
+    "name": "Nutricia",
+    "logo": "assets/clients/nutricia.svg"
+  },
+  {
+    "name": "PZPN",
+    "logo": "assets/clients/pzpn.svg"
+  },
+  {
+    "name": "Żabka",
+    "logo": "assets/clients/pzpn.svg"
+  },
+  {
+    "name": "Rimmel London",
+    "logo": "assets/clients/coty.svg"
+  },
+  {
+    "name": "Marc Jacobs",
+    "logo": "assets/clients/marc-jacobs.svg"
+  },
+  {
+    "name": "Max Factor",
+    "logo": "assets/clients/maxfactor.svg"
+  },
+  {
+    "name": "dentsu",
+    "logo": "assets/clients/dentsu.svg"
+  },
+  {
+    "name": "isobar",
+    "logo": "assets/clients/isobar.svg"
+  },
+  {
+    "name": "Ars Thanea",
+    "logo": "assets/clients/arsthanea.svg"
+  },
+  {
+    "name": "SYZYGY",
+    "logo": "assets/clients/syzygy.svg"
+  },
+  {
+    "name": "Batmaid",
+    "logo": "assets/clients/batmaid.svg"
+  },
+  {
+    "name": "Optyk Warszawski",
+    "logo": "assets/clients/optyk-warszawski.svg"
+  },
+  {
+    "name": "Renort - Słuchając Ciała",
+    "logo": "assets/clients/renort.svg"
+  },
+  {
+    "name": "Stalgast",
+    "logo": "assets/clients/stalgast.svg"
+  },
+  {
+    "name": "KLER",
+    "logo": "assets/clients/kler.svg"
+  }
+]
