@@ -2,29 +2,25 @@
   {
     "authorName": "Paulina Kantorska",
     "authorTitle": "SYZYGY",
-    "authorPhoto": "assets/testimonials/paulina-kantorska.jpeg",
-    "featured": true,
+    "authorPhoto": "/assets/testimonials/paulina-kantorska.jpeg",
     "content": "What I love about Kuba is his open mind and the ability to translate code into human language. Many times his development and interpersonal skills have helped us to find even better and smarter solutions for our Clients. He is also very fast and ambitious - 90% of tasks entrusted to him were completed much faster than we have planned. And last but not least - he is a great man. It was a pleasure to have you in team ♥️"
   },
   {
     "authorName": "Magdalena Kercz",
     "authorTitle": "SYZYGY",
-    "authorPhoto": "assets/testimonials/magdalena-kercz.jpeg",
-    "featured": true,
+    "authorPhoto": "/assets/testimonials/magdalena-kercz.jpeg",
     "content": "In brief - fantastic person! Enthusiastic, hard-working, able to handle every task, very helpful. Thanks to Kuba I realized that working with the IT department can be very inspirational, and also fun. Kuba has always been able to find a solution not only for its own tasks, but also for tasks that have been contracted by accident :))) Kuba was my favorite colleague and I would love to work with him again!"
   },
   {
     "authorName": "Mateusz Janczewski",
     "authorTitle": "Ars Thanea",
-    "authorPhoto": "assets/testimonials/mateusz-janczewski.jpeg",
-    "featured": true,
+    "authorPhoto": "/assets/testimonials/mateusz-janczewski.jpeg",
     "content": "We have been working together with Kuba during Puzzle Craft 2 development. I have been pleased with his excellent development approach and produced quality. If you are looking for an exceptional leader and great backend developer, for sure, you should choose Kuba!"
   },
   {
     "authorName": "Piotr Krzypkowski",
     "authorTitle": "isobar",
-    "authorPhoto": "assets/testimonials/piotr-krzypkowski.jpeg",
-    "featured": true,
+    "authorPhoto": "/assets/testimonials/piotr-krzypkowski.jpeg",
     "content": "A hard-working professional, combining team management skills and amazing knowledge of technology. Working with him is pure pleasure as he can use his knowledge in an agile way and also work well with people without a deep technology background. In everyday work, he combines professionalism with a relaxed approach, which I personally prefer. Worth recommending as a leader and high-class specialist in the field of web technology."
   }
 ]

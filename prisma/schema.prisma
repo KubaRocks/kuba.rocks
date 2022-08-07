@@ -65,7 +65,7 @@ model Testimonial {
     authorTitle String
     authorPhoto String
     content     String    @db.Text
-    featured    Boolean
+    hidden      Boolean   @default(false)
     createdAt   DateTime  @default(now())
 }
 
