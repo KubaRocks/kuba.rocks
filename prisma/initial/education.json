@@ -1,0 +1,97 @@
+[
+  {
+    "company": "LevelUp",
+    "title": "Modern CSS Design Systems",
+    "description": "Creating a modern CSS Design System, which is very flexible, easy to maintain and modify.",
+    "date": "2021-08-01"
+  },
+  {
+    "company": "devstyle.pl",
+    "title": "Smart Testing Course",
+    "description": "6 weeks course about testing applications: unit tests, integration tests, end to end tests, mocks, stubs, etc",
+    "date": "2020-10-01"
+  },
+  {
+    "company": "wesbos.com",
+    "title": "Master Gatsby Course",
+    "description": "Building modern websites is tough. Preloading, routing, compression, critical CSS, caching, scaling and bundlers all make for blazing fast websites, but extra development and tooling get in the way. Gatsby is a React.js framework that does it all for you. This course will teach you how to build your websites and let Gatsby take care of all the Hard Stuff™. Sanity.io is used as backend CMS and styled components for CSS.",
+    "date": "2019-10-01"
+  },
+  {
+    "company": "wesbos.com",
+    "title": "Advanced React and GraphQL Course",
+    "description": "The course has six main models — Users, Items, Orders, CartItems, OrderItems, and Roles — all of which are relational and showcase the power of relational GraphQL Queries. The app also includes many server side bits including authentication, permissions, sending email, uploading images, and charging credit cards. In addition to building both the frontend and backend of the application, participant also spend the last section of the course Testing the React application.",
+    "date": "2019-08-01"
+  },
+  {
+    "company": "wesbos.com",
+    "title": "Learn Redux Course",
+    "description": "A 20 video / 2.5 hour course to learn how to use Redux, React Router and React together.",
+    "date": "2019-04-01"
+  },
+  {
+    "company": "symfonycasts.com",
+    "title": "PHPUnit, ReactJS Courses",
+    "description": "Basic unit testing, Test-Driven-Development: how to do it, when to do it, Mocking and test doubles, creating mocks in PHPUnit & Prophecy, using data providers to run tests over and over again with different input.\n\nIntegrating symfony application with React.js frontend application.",
+    "date": "2019-01-01"
+  },
+  {
+    "company": "wesbos.com",
+    "title": "JavaScript30 Course",
+    "description": "A free 30 day vanilla js coding challenge. I've learned to build 30 things in 30 days with 30 tutorials. No Frameworks, No Compilers, No Libraries, No Boilerplate.",
+    "date": "2018-11-01"
+  },
+  {
+    "company": "symfonycasts.com",
+    "title": "Drupal 8, PHP 7, Symfony 4 Courses",
+    "description": "PHP 7: Scalar type declarations and return types, nullable types, void types, class constant visibility, new error and exception handling\n\nSymfony 4 fundamentals: Services, Config & Environments, Upgrading to Symfony 4.",
+    "date": "2018-06-01"
+  },
+  {
+    "company": "symfonycasts.com",
+    "title": "Symfony 3, Doctrine, REST, Gulp Courses",
+    "description": "Doctrine relationships course, REST API - design, principles and implementation, Upgrading to Symfony 3, Symfony 3 fundamentals, setting up Gulp for frontend builds",
+    "date": "2017-11-01"
+  },
+  {
+    "company": "symfonycasts.com",
+    "title": "OAuth 2, Symfony 3, Doctrine, BDD, Behat Courses",
+    "date": "2016-06-01"
+  },
+  {
+    "company": "APMG-International",
+    "title": "Agile PM: Practitioner",
+    "description": "How to apply a variety of agile practices to a project, for example, workshops, the MoSCoW technique to define project priorities, iterative development and modeling. How to test, estimate and evaluate profit delivery in an Agile project. Facilitation and support mechanisms within an Agile project. The agile approach to manage and prioritize requirements",
+    "date": "2014-09-01"
+  },
+  {
+    "company": "APMG-International",
+    "title": "Agile PM: Foundation",
+    "description": "The underpinning philosophy and principles of Agile. The lifecycle of an Agile project, including alternative configurations. The products produced during an Agile project and their purpose. The techniques used and their benefits and limitations. The roles and responsibilities within an Agile project",
+    "date": "2014-11-01"
+  },
+  {
+    "company": "szkolalinuxa.pl",
+    "title": "Linux Administration Course",
+    "description": "Course that was equivalent to first two levels of RHEL Certification: RHCSA and RHCE.",
+    "date": "2013-11-01"
+  },
+  {
+    "company": "PJWSTK",
+    "title": "Computer Science",
+    "description": "I've attended there on the evening studies, while at the same time running my company - Polygon Studio with 2 of my friends. The fun part was, that I didn't have to attend any non-IT classes, as they were taken from another course of studies (from Warsaw University of Technology)",
+    "date": "2009-06-01"
+  },
+  {
+    "company": "Warsaw University of Technology",
+    "title": "IT Systems Management",
+    "description": "Besides of studying I was also a member of ESTIEM student organization. This gave me an opportunity to develop some websites that were helping organization in spread of information across the members.",
+    "date": "2007-06-01"
+  },
+  {
+    "company": "4 SLO - Secondary School",
+    "title": "Math and Computer Science Class",
+    "description": "My first encounter with serious programming. On one assignment we were suppose to write algorithm for the game Collect Four, then the tournament was organized in which our programs were playing against each other in double elimination bracket.",
+    "date": "2002-06-01"
+  }
+]

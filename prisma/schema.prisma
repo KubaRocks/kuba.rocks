@@ -78,12 +78,21 @@ model Client {
 }
 
 model Experience {
-   id           String    @id @default(cuid())
-   company      String
-   title        String
-   description  String?   @db.Text
-   highlights   Json?
-   startDate    DateTime
-   endDate      DateTime?
-   createdAt    DateTime  @default(now())
+    id           String    @id @default(cuid())
+    company      String
+    title        String
+    description  String?   @db.Text
+    highlights   Json?
+    startDate    DateTime
+    endDate      DateTime?
+    createdAt    DateTime  @default(now())
+}
+
+model Education {
+    id           String    @id @default(cuid())
+    company      String
+    title        String
+    description  String?   @db.Text
+    date         DateTime
+    createdAt    DateTime  @default(now())
 }
