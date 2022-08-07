@@ -68,3 +68,11 @@ model Testimonial {
     featured    Boolean
     createdAt   DateTime @default(now())
 }
+
+model Client {
+    id        String @id @default(cuid())
+    name      String
+    logo      String
+    hidden    Boolean @default(false)
+    createdAt DateTime @default(now())
+}
