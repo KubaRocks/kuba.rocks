@@ -1,0 +1,132 @@
+[
+  {
+    "company": "X-Team",
+    "title": "Senior Software Engineer",
+    "description": "As one of X-Team's Senior Software Engineers, I'm part of the team which was assigned to work together with Cushon's team on one of their projects, used by thousands of people in UK every day. Working on this project, I got to fully leverage my back-end development skills along with my MySQL database, and overall security design knowledge Among other things, I was tasked with:",
+    "highlights": [
+      "Integrating with third party APIs",
+      "Writing automation for deploying API documentation to SwaggerHub",
+      "Refactoring, writing unit, integration and functional tests"
+    ],
+    "startDate": "2021-08-01"
+  },
+  {
+    "company": "transferGo",
+    "title": "Senior Software Engineer",
+    "highlights": [
+      "Extracting logic from monolith project to microservice",
+      "Refactoring and cleaning up the code",
+      "Using new features of PHP 8 (constructor property promotion, attributes, named arguments etc.)",
+      "Code review",
+      "Technologies: DDD, CQRS, Microservices, PHP 8, Symfony, Laravel, Doctrine, React, Redux, MySQL, Redis, GitHub, Amazon AWS (SQS, SNS), Docker, PHPUnit"
+    ],
+    "startDate": "2021-04-01",
+    "endDate": "2021-07-31"
+  },
+  {
+    "company": "Batmaid",
+    "title": "Technology Team Leader",
+    "highlights": [
+      "Team management (performance review, one on one's)",
+      "Working closely with Product Owners and Managers",
+      "PHP Application Architecture",
+      "REST API design",
+      "Recruitment of new members for IT department",
+      "Code review",
+      "Technologies: DDD, CQRS, Symfony, Doctrine, React, MySQL, Redis, GitHub, Amazon AWS, Docker, Firebase, Kubernetes, Ansible, Gatsby, behat, PHPUnit, jest"
+    ],
+    "startDate": "2020-07-01",
+    "endDate": "2021-02-31"
+  },
+  {
+    "company": "isobar",
+    "title": "Technology Team Leader",
+    "highlights": [
+      "Leading a team of 30 developers",
+      "PHP Application Architecture",
+      "Recruitment of new members for IT department",
+      "Code review",
+      "Co-operation with London Office on global COTY websites",
+      "Technologies: Symfony 4+, Twig, Doctrine 2, React, MongoDB, MySQL, Redis, GitHub, GitLab, Amazon AWS Docker, Kubernetes, Ansible, GraphQL, Apollo, Gatsby, Next.js, behat, PHPUnit, jest"
+    ],
+    "startDate": "2019-04-01",
+    "endDate": "2020-06-30"
+  },
+  {
+    "company": "Ars Thanea / SYZYGY",
+    "title": "PHP Team Leader",
+    "highlights": [
+      "Leading a team of developers",
+      "PHP Application Architecture",
+      "Recruitment of new members for IT department",
+      "Code review",
+      "Scalable infrastructure that handles over 30 000 requests per minute (API for game Puzzle Craft 2)",
+      "Co-operation with Frankfurt Office on global Dr. Oetker website",
+      "Technologies: Symfony 2-4, Silex, Twig, Doctrine, Angular, React, MongoDB, MySQL, Redis, GitHub, GitLab, Amazon AWS (EC2, Elastic Beanstalk, OpsWorks, ElasticCache, RDS, SNS, SES, S3, CloudFront etc.), Docker, Vagrant, Ansible, Puppet, Chef"
+    ],
+    "startDate": "2014-11-01",
+    "endDate": "2020-03-31"
+  },
+  {
+    "company": "FairSquare / Soft Integrated / Software Focus",
+    "title": "Senior PHP Developer, Team Leader, CTO",
+    "highlights": [
+      "Leading a team of developers",
+      "PHP Application Architecture",
+      "Creating a development environment for the team based on virtualization tools (Vagrant, Puppet, VirtualBox), so that regardless of the platform on which the developer is working (Windows, Linux, OS X) application code is always run on shared virtual platform, which is similar to production servers.",
+      "Introducing new services to application architecture: MongoDB, Node.js, Sphinx",
+      "Application deployment on Amazon AWS servers using Capistrano",
+      "Negotiations with subcontractors and services providers",
+      "Office servers administration: router and development server",
+      "Writing tools to monitor communications between the systems",
+      "Programming in PHP 5, MySQL and Yii Framework",
+      "Implementation of the project management system and supporting tool (Redmine)",
+      "Recruitment of new members of the IT team"
+    ],
+    "startDate": "2012-05-01",
+    "endDate": "2014-10-31"
+  },
+  {
+    "company": "Stalgast",
+    "title": "Web Designer, Developer",
+    "highlights": [
+      "Design & Development of projects: unox.pl, stalgast.com, relacje.stalgast.com, 20lat.stalgast.com",
+      "System integration between internet store (stalgast.com) and Microsoft Dynamics AX",
+      "Promotion of the company in Social Media",
+      "Graphic Design supporting marketing campaigns"
+    ],
+    "startDate": "2010-03-01",
+    "endDate": "2012-04-30"
+  },
+  {
+    "company": "Polygon Studio",
+    "title": "Owner",
+    "highlights": [
+      "Design, creation and development of applications based on PHP, Symfony, MySQL, React",
+      "Graphic Design of internet websites, identity, print advertisements, posters, billboards",
+      "Managing team of Freelancers",
+      "Recruitment of subcontractors",
+      "Linux servers administration",
+      "Design, creation and development of applications based on PHP 5, Zend Framework and MySQL"
+    ],
+    "startDate": "2006-06-01"
+  },
+  {
+    "company": "NewOrder.pl",
+    "title": "Web Developer, Web Designer, Team Leader",
+    "highlights": [
+      "Design, creation and development of applications based on PHP, MySQL",
+      "Graphic Design of internet websites, identity, print advertisements, posters, billboards",
+      "Project Management"
+    ],
+    "startDate": "2005-08-01",
+    "endDate": "2006-05-31"
+  },
+  {
+    "company": "Stalgast",
+    "title": "Web Developer, Web Designer",
+    "description": "Summer part-time job during which I've created 3 brand websites for the company",
+    "startDate": "2004-06-01",
+    "endDate": "2006-08-31"
+  }
+]
