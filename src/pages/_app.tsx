@@ -4,7 +4,6 @@ import type { AppRouter } from "@app/server/router";
 import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
-import "@app/styles/globals.css";
 import { Layout } from "@app/components/common/Layout";
 
 const MyApp: AppType = ({

@@ -1,5 +1,15 @@
 import React, { PropsWithChildren } from "react";
 import Head from "next/head";
+import { Header } from "@app/components/common/Header";
+import styled from "styled-components";
+import { GlobalStyles } from "@app/styles/GlobalStyles";
+import { Typography } from "@app/styles/Typography";
+
+const ContentStyled = styled.div`
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+  display: grid;
+`;
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -14,7 +24,10 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>{children}</main>
+      <GlobalStyles />
+      <Typography />
+      <Header />
+      <ContentStyled>{children}</ContentStyled>
       <footer></footer>
     </>
   );
