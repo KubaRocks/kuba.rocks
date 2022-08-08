@@ -5,8 +5,11 @@ const ResumePage: NextPage = () => {
   const { data: experience, isLoading: experienceLoading } = trpc.useQuery([
     "experience.getAll",
   ]);
+  const { data: education, isLoading: educationLoading } = trpc.useQuery([
+    "education.getAll",
+  ]);
 
-  if (experienceLoading) return <p>Loading...</p>;
+  if (experienceLoading || educationLoading) return <p>Loading...</p>;
 
   return (
     <>
@@ -22,14 +25,30 @@ const ResumePage: NextPage = () => {
               {experienceEntry.description && (
                 <div>{experienceEntry.description}</div>
               )}
+
               {experienceEntry.highlights &&
-                experienceEntry.highlights instanceof Array &&
-                experienceEntry.highlights.map((highlight, index) => (
-                  <>
-                    &raquo; {highlight}
-                    <br />
-                  </>
-                ))}
+                experienceEntry.highlights instanceof Array && (
+                  <ul>
+                    {experienceEntry.highlights.map((highlight, index) => (
+                      <li key={index}>{highlight as string}</li>
+                    ))}
+                  </ul>
+                )}
+            </div>
+          ))}
+      </ul>
+
+      <h2>Education and Courses</h2>
+      <ul>
+        {education &&
+          education.map((educationEntry) => (
+            <div key={educationEntry.id}>
+              <h5>{educationEntry.date.getFullYear()}</h5>
+              <aside>{educationEntry.company}</aside>
+              <h4>{educationEntry.title}</h4>
+              {educationEntry.description && (
+                <div>{educationEntry.description}</div>
+              )}
             </div>
           ))}
       </ul>

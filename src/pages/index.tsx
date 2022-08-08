@@ -1,13 +1,9 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import { trpc } from "@app/utils/trpc";
 import { Hero } from "@app/components/home/Hero";
 import { TestimonialsList } from "@app/components/home/TestimonialsList";
 import { ClientsCarousel } from "@app/components/home/ClientsCarousel";
 
 const Home: NextPage = () => {
-  const { data, isLoading, error } = trpc.useQuery(["question.getSession"]);
-  console.log({ data, isLoading, error });
   return (
     <>
       <div>
