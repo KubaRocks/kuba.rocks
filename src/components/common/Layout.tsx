@@ -6,6 +6,8 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     <>
       <Head>
         <title>kuba.rocks - full-stack developer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet="utf-8" />
         <meta
           name="description"
           content="Full-Stack Developer - PHP, TypeScript, symfony, React"
