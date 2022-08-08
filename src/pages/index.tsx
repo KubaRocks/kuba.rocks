@@ -9,14 +9,6 @@ const Home: NextPage = () => {
   console.log({ data, isLoading, error });
   return (
     <>
-      <Head>
-        <title>kuba.rocks - full-stack developer</title>
-        <meta
-          name="description"
-          content="Full-Stack Developer - PHP, TypeScript, symfony, React"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div>
         <Hero />
         <h2>What I use</h2>

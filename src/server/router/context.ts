@@ -7,7 +7,7 @@ import { authOptions as nextAuthOptions } from "@app/pages/api/auth/[...nextauth
 import { prisma } from "@app/server/db/client";
 
 export const createContext = async (
-  opts?: trpcNext.CreateNextContextOptions
+  opts?: trpcNext.CreateNextContextOptions,
 ) => {
   const req = opts?.req;
   const res = opts?.res;

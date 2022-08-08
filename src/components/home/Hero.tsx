@@ -5,8 +5,8 @@ import Image from "next/dist/client/future/image";
 export const Hero = () => {
   return (
     <section>
-      <Image src={clouds} alt="Kuba Florczuk" />
-      <Image src={rock} alt="Kuba Florczuk" />
+      <Image src={clouds} alt="Kuba Florczuk" width={360} height={360} />
+      <Image src={rock} alt="Kuba Florczuk" width={360} height={360} />
 
       <h4>Full-Stack Developer, Team Leader</h4>
       <h1>Kuba Florczuk</h1>
