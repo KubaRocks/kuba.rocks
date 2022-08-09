@@ -15,15 +15,19 @@ const HeroStyled = styled.section`
   align-items: center;
   padding: 6rem 12rem;
   margin-bottom: 4rem;
+
   @media (max-width: 1024px) {
     padding: 3rem 6rem;
   }
+
   @media (max-width: 920px) {
     grid-template-columns: 1fr;
   }
+
   @media (max-width: 475px) {
     padding: 1.5rem 3rem;
   }
+
   h1 {
     font-size: 4.8rem;
     margin: 1rem 0 3rem 0;
@@ -35,6 +39,7 @@ const HeroStyled = styled.section`
       margin: 1rem 0;
     }
   }
+
   h4 {
     color: var(--lightGrey);
     font-weight: 300;
@@ -43,6 +48,7 @@ const HeroStyled = styled.section`
       font-size: 1.2rem;
     }
   }
+
   p {
     color: var(--grey);
     line-height: 2.5rem;
@@ -57,6 +63,7 @@ const PortraitStyled = styled.div`
   overflow: hidden;
   --cast: 2px;
   box-shadow: var(--cast) var(--cast) 15px rgba(0, 0, 0, 0.2);
+
   @media (max-width: 680px) {
     width: 250px;
     height: 250px;
@@ -68,6 +75,7 @@ export const Hero = () => {
   const router = useRouter();
   const { yearsOfExperience } = useFunFacts();
   const [hover, setHover] = useState(false);
+  const resumeUrl = "/assets/me/CV - Kuba Florczuk - 2022 EN.pdf";
 
   return (
     <HeroStyled>
@@ -95,7 +103,7 @@ export const Hero = () => {
         </p>
 
         <p>
-          <Button href="#" download>
+          <Button href={resumeUrl} download>
             Download CV
           </Button>
           <Button
