@@ -37,5 +37,7 @@ export const useFunFacts = () => {
     workingHours: calculateWorkingHours(),
     coffeeConsumed: calculateCoffeeConsumed(),
     yearsOfExperience: calculateYearsOfExperience(),
+    // TODO: fetch that
+    gitHubRepos: 41,
   };
 };

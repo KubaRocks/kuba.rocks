@@ -3,6 +3,7 @@ import { Hero } from "@app/components/home/Hero";
 import { TestimonialsList } from "@app/components/home/TestimonialsList";
 import { ClientsCarousel } from "@app/components/home/ClientsCarousel";
 import styled from "styled-components";
+import { FunFacts } from "@app/components/home/FunFacts";
 
 const HomePageStyled = styled.div`
   max-width: var(--maxWidth);
@@ -12,15 +13,12 @@ const HomePageStyled = styled.div`
 const Home: NextPage = () => {
   return (
     <HomePageStyled>
-      <div>
-        <Hero />
-        <h2>What I use</h2>
+      <Hero />
+      <h2>What I use</h2>
 
-        <TestimonialsList />
-        <ClientsCarousel />
-
-        <h2>Fun Facts</h2>
-      </div>
+      <TestimonialsList />
+      <ClientsCarousel />
+      <FunFacts />
     </HomePageStyled>
   );
 };
