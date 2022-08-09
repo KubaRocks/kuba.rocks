@@ -4,6 +4,7 @@ import { Header } from "@app/components/common/Header";
 import styled from "styled-components";
 import { GlobalStyles } from "@app/styles/GlobalStyles";
 import { Typography } from "@app/styles/Typography";
+import { Footer } from "@app/components/common/Footer";
 
 const ContentStyled = styled.div`
   margin: 0 auto;
@@ -28,7 +29,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
       <Typography />
       <Header />
       <ContentStyled>{children}</ContentStyled>
-      <footer></footer>
+      <Footer />
     </>
   );
 };
