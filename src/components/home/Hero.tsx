@@ -1,9 +1,11 @@
 import clouds from "public/assets/me/look-into-clouds.png";
-import Image from "next/dist/client/future/image";
+import rock from "public/assets/me/rock.png";
 import styled from "styled-components";
 import { Button } from "@app/components/common/Button";
 import { useRouter } from "next/router";
 import { useFunFacts } from "@app/useFunFacts";
+import Image from "next/dist/client/future/image";
+import { useState } from "react";
 
 const HeroStyled = styled.section`
   display: grid;
@@ -65,12 +67,20 @@ const PortraitStyled = styled.div`
 export const Hero = () => {
   const router = useRouter();
   const { yearsOfExperience } = useFunFacts();
+  const [hover, setHover] = useState(false);
 
   return (
     <HeroStyled>
-      <PortraitStyled>
-        <Image src={clouds} alt="Kuba Florczuk" width={360} height={360} />
-        {/*<Image src={rock} alt="Kuba Florczuk" width={360} height={360} />*/}
+      <PortraitStyled
+        onMouseOver={() => setHover(true)}
+        onMouseOut={() => setHover(false)}
+      >
+        {!hover && (
+          <Image src={clouds} alt="Kuba Florczuk" width={360} height={360} />
+        )}
+        {hover && (
+          <Image src={rock} alt="Kuba Florczuk" width={360} height={360} />
+        )}
       </PortraitStyled>
 
       <div>

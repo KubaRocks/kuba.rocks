@@ -7,6 +7,8 @@ import JsonValue = Prisma.JsonValue;
 const ResumeItemStyled = styled.li`
   position: relative;
   padding: 2.5rem 0 2rem 4rem;
+  font-size: 1.2rem;
+
   &:before {
     content: "";
     position: absolute;
@@ -18,6 +20,7 @@ const ResumeItemStyled = styled.li`
     bottom: 5px;
     z-index: -1;
   }
+
   &:after {
     content: "";
     position: absolute;
@@ -28,10 +31,12 @@ const ResumeItemStyled = styled.li`
     left: 15px;
     bottom: 3px;
   }
+
   h4 {
     font-size: 1.6rem;
     margin: 1rem 0 0.7rem;
   }
+
   h5 {
     display: inline-block;
     background-color: white;
@@ -43,16 +48,16 @@ const ResumeItemStyled = styled.li`
     color: var(--grey);
     font-weight: 400;
   }
+
   aside {
     display: inline-block;
-    font-size: 1.2rem;
     color: var(--lightGrey);
     margin-left: 0.5rem;
   }
+
   .description {
     color: var(--grey);
     line-height: 2.5rem;
-    font-size: 1.2rem;
   }
 `;
 
@@ -82,15 +87,17 @@ export const ResumeItem: React.FC<{ resumeItem: Item }> = ({ resumeItem }) => {
       </h5>
       <aside>{resumeItem.company}</aside>
       <h4>{resumeItem.title}</h4>
-      {resumeItem.description && <div>{resumeItem.description}</div>}
+      <div className="description">
+        {resumeItem.description && <p>{resumeItem.description}</p>}
 
-      {resumeItem.highlights && resumeItem.highlights instanceof Array && (
-        <ul>
-          {resumeItem.highlights.map((highlight, index) => (
-            <li key={index}>{highlight as string}</li>
-          ))}
-        </ul>
-      )}
+        {resumeItem.highlights && resumeItem.highlights instanceof Array && (
+          <ul className="description">
+            {resumeItem.highlights.map((highlight, index) => (
+              <li key={index}>{highlight as string}</li>
+            ))}
+          </ul>
+        )}
+      </div>
     </ResumeItemStyled>
   );
 };

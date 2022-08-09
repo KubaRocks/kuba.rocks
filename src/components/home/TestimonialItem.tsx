@@ -2,7 +2,7 @@ import React from "react";
 import { Testimonial } from "./TestimonialsList";
 import Image from "next/dist/client/future/image";
 import styled from "styled-components";
-import { FaQuoteLeft, FaQuoteRight } from "react-icons/all";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa/";
 
 const TestimonialStyled = styled.div`
   position: relative;
