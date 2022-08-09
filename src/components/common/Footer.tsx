@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import React, { ReactElement } from "react";
 
 const FooterStyled = styled.footer`
   position: absolute;
@@ -16,13 +17,16 @@ const FooterStyled = styled.footer`
   font-size: 1.4rem;
   border-top: 2px solid var(--almostWhiteGrey);
   background: #fdfdfd;
+
   @media (max-width: 375px) {
     padding: 0 1rem;
   }
+
   nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+
   ul {
     list-style: none;
     justify-self: start;
@@ -35,12 +39,15 @@ const FooterStyled = styled.footer`
       padding: 0;
     }
   }
+
   .icons {
     font-size: 2rem;
   }
+
   div {
     justify-self: end;
   }
+
   span {
     @media (max-width: 320px) {
       display: none;
@@ -54,40 +61,28 @@ export const Footer = () => (
       <IconContext.Provider value={{ className: "icons" }}>
         <ul>
           <li>
-            <a
+            <FooterLink
               href="https://twitter.com/KubaRocks"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaTwitter />
-            </a>
+              icon={<FaTwitter />}
+            />
           </li>
           <li>
-            <a
+            <FooterLink
               href="https://www.instagram.com/kuba_rocks/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaInstagram />
-            </a>
+              icon={<FaInstagram />}
+            />
           </li>
           <li>
-            <a
+            <FooterLink
               href="https://www.linkedin.com/in/kubaflorczuk/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedin />
-            </a>
+              icon={<FaLinkedin />}
+            />
           </li>
           <li>
-            <a
-              href="https://github.com/KubaRocks"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaGithub />
-            </a>
+            <FooterLink
+              href={"https://github.com/KubaRocks"}
+              icon={<FaGithub />}
+            />
           </li>
         </ul>
       </IconContext.Provider>
@@ -97,3 +92,14 @@ export const Footer = () => (
     </div>
   </FooterStyled>
 );
+
+const FooterLink: React.FC<{ href: string; icon: ReactElement }> = ({
+  href,
+  icon,
+}) => {
+  return (
+    <a href={href} target="_blank" rel="noreferrer">
+      {icon}
+    </a>
+  );
+};
