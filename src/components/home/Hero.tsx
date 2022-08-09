@@ -3,7 +3,7 @@ import rock from "public/assets/me/rock.png";
 import styled from "styled-components";
 import { Button } from "@app/components/common/Button";
 import { useRouter } from "next/router";
-import { useFunFacts } from "@app/useFunFacts";
+import { useFunFacts } from "@app/hooks/useFunFacts";
 import Image from "next/dist/client/future/image";
 import { useState } from "react";
 

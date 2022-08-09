@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { PageTitle } from "@app/components/common/PageTitle";
 import { SectionTitle } from "@app/components/common/SectionTitle";
 import { ResumeItem } from "@app/components/resume/ResumeItem";
-import { useFunFacts } from "@app/useFunFacts";
+import { useFunFacts } from "@app/hooks/useFunFacts";
 
 const ResumePageStyled = styled.section`
   display: grid;

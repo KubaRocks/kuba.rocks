@@ -3,7 +3,7 @@ import { SectionTitle } from "@app/components/common/SectionTitle";
 import { AiOutlineGithub } from "react-icons/ai";
 import { BiCoffeeTogo } from "react-icons/bi";
 import { BsAward, BsWatch } from "react-icons/bs";
-import { useFunFacts } from "@app/useFunFacts";
+import { useFunFacts } from "@app/hooks/useFunFacts";
 import { IconContext } from "react-icons";
 
 const FunFactsSection = styled.section`

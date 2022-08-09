@@ -18,11 +18,13 @@ export const Button = styled.a<{ secondary?: boolean }>`
   box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.22);
   margin: 1rem;
   transition: all 0.3s ease-in-out;
+
   &:hover {
     background-color: var(--backgroundHoverColor);
     color: var(--textHoverColor);
     border-color: var(--borderHoverColor);
   }
+
   ${(props) =>
     props.secondary &&
     css`
