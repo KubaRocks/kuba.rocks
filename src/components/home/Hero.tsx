@@ -3,6 +3,7 @@ import Image from "next/dist/client/future/image";
 import styled from "styled-components";
 import { Button } from "@app/components/common/Button";
 import { useRouter } from "next/router";
+import { useFunFacts } from "@app/useFunFacts";
 
 const HeroStyled = styled.section`
   display: grid;
@@ -63,6 +64,7 @@ const PortraitStyled = styled.div`
 
 export const Hero = () => {
   const router = useRouter();
+  const { yearsOfExperience } = useFunFacts();
 
   return (
     <HeroStyled>
@@ -76,10 +78,10 @@ export const Hero = () => {
         <h1>Kuba Florczuk</h1>
 
         <p>
-          I'm a Full-Stack Developer and Team Leader based in Warsaw, Poland,
-          with 18 years of commercial experience in Web Development and Team
-          Management. Also a husband and father of one sweet two-year-old girl.
-          Huge fan of basketball and comics.
+          I&apos;m a Full-Stack Developer and Team Leader based in Warsaw,
+          Poland, with {yearsOfExperience} years of commercial experience in Web
+          Development and Team Management. Also a husband and father of one
+          sweet two-year-old girl. Huge fan of basketball and comics.
         </p>
 
         <p>
