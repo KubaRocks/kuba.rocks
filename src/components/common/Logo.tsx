@@ -1,6 +1,6 @@
-import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const LogoStyled = styled.div`
   justify-self: start;
@@ -34,16 +34,14 @@ const TitleStyled = styled.h1`
 `;
 
 export const Logo = () => {
+  const router = useRouter();
+
   return (
-    <LogoStyled>
-      <Link href="/">
-        <a>
-          <SymbolStyled>K</SymbolStyled>
-          <TitleStyled>
-            <strong>Kuba</strong>.rocks
-          </TitleStyled>
-        </a>
-      </Link>
+    <LogoStyled onClick={() => router.push("/")}>
+      <SymbolStyled>K</SymbolStyled>
+      <TitleStyled>
+        <strong>Kuba</strong>.rocks
+      </TitleStyled>
     </LogoStyled>
   );
 };
