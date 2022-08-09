@@ -4,6 +4,7 @@ import { TestimonialsList } from "@app/components/home/TestimonialsList";
 import { ClientsCarousel } from "@app/components/home/ClientsCarousel";
 import styled from "styled-components";
 import { FunFacts } from "@app/components/home/FunFacts";
+import { Technologies } from "@app/components/home/Technologies";
 
 const HomePageStyled = styled.div`
   max-width: var(--maxWidth);
@@ -14,8 +15,7 @@ const Home: NextPage = () => {
   return (
     <HomePageStyled>
       <Hero />
-      <h2>What I use</h2>
-
+      <Technologies />
       <TestimonialsList />
       <ClientsCarousel />
       <FunFacts />
