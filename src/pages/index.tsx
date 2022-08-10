@@ -34,8 +34,8 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   const withoutHidden = { where: { hidden: false } };
-  const testimonials = prisma.testimonial.findMany(withoutHidden);
-  const clients = prisma.client.findMany(withoutHidden);
+  const testimonials = await prisma.testimonial.findMany(withoutHidden);
+  const clients = await prisma.client.findMany(withoutHidden);
   const DAY_IN_SECONDS = 60 * 60 * 24;
 
   return {
