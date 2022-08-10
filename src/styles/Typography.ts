@@ -23,16 +23,16 @@ const PoppinsExtraBoldItalicWoff2 =
 export const Typography = createGlobalStyle`
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-Regular.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-Regular.woff2) format('woff');
+    src: url(${PoppinsWoff2}) format('woff2'),
+    url(${PoppinsWoff}) format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-Italic.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-Italic.woff) format('woff');
+    src: url(${PoppinsItalicWoff2}) format('woff2'),
+    url(${PoppinsItalicWoff}) format('woff');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -40,56 +40,56 @@ export const Typography = createGlobalStyle`
   
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-SemiBold.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-SemiBold.woff) format('woff');
+    src: url(${PoppinsBoldWoff2}) format('woff2'),
+    url(${PoppinsBoldWoff}) format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-BoldItalic.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-BoldItalic.woff) format('woff');
+    src: url(${PoppinsBoldItalicWoff2}) format('woff2'),
+    url(${PoppinsBoldItalicWoff}) format('woff');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-SemiBold.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-SemiBold.woff) format('woff');
+    src: url(${PoppinsSemiBoldWoff2}) format('woff2'),
+    url(${PoppinsSemiBoldWoff}) format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-SemiBoldItalic.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-SemiBoldItalic.woff) format('woff');
+    src: url(${PoppinsSemiBoldItalicWoff2}) format('woff2'),
+    url(${PoppinsSemiBoldItalicWoff}) format('woff');
     font-weight: 600;
     font-style: italic;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-ExtraBold.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-ExtraBold.woff) format('woff');
+    src: url(${PoppinsExtraBoldWoff2}) format('woff2'),
+    url(${PoppinsExtraBoldWoff}) format('woff');
     font-weight: 800;
     font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-ExtraBoldItalic.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-ExtraBoldItalic.woff) format('woff');
+    src: url(${PoppinsExtraBoldItalicWoff2}) format('woff2'),
+    url(${PoppinsExtraBoldItalicWoff}) format('woff');
     font-weight: 800;
     font-style: italic;
     font-display: swap;
   }
   @font-face {
     font-family: 'Poppins';
-    src: url(/assets/fonts/Poppins-Light.woff2) format('woff2'),
-    url(/assets/fonts/Poppins-Light.woff) format('woff');
+    src: url(${PoppinsLightWoff2}) format('woff2'),
+    url(${PoppinsLightWoff}) format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
