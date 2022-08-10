@@ -7,6 +7,7 @@ import { FunFacts } from "@app/components/home/FunFacts";
 import { Technologies } from "@app/components/home/Technologies";
 import React from "react";
 import { AsyncReturnType } from "type-fest";
+import { prisma } from "@app/server/db/client";
 
 const HomePageStyled = styled.div`
   max-width: var(--maxWidth);
