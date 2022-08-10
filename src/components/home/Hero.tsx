@@ -53,6 +53,10 @@ const HeroStyled = styled.section`
     color: var(--grey);
     line-height: 2.5rem;
   }
+
+  .hide {
+    display: none;
+  }
 `;
 
 const PortraitStyled = styled.div`
@@ -83,12 +87,23 @@ export const Hero = () => {
         onMouseOver={() => setHover(true)}
         onMouseOut={() => setHover(false)}
       >
-        {!hover && (
-          <Image src={clouds} alt="Kuba Florczuk" width={360} height={360} />
-        )}
-        {hover && (
-          <Image src={rock} alt="Kuba Florczuk" width={360} height={360} />
-        )}
+        <Image
+          src={clouds}
+          alt="Kuba Florczuk"
+          width={360}
+          height={360}
+          priority
+          className={!hover ? undefined : "hide"}
+        />
+
+        <Image
+          src={rock}
+          alt="Kuba Florczuk"
+          width={360}
+          height={360}
+          priority
+          className={hover ? undefined : "hide"}
+        />
       </PortraitStyled>
 
       <div>
