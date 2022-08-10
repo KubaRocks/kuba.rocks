@@ -25,6 +25,17 @@ export const Button = styled.a<{ secondary?: boolean }>`
     border-color: var(--borderHoverColor);
   }
 
+  &[disabled] {
+    background-color: var(--veryLightGrey);
+    border-color: var(--lightGrey);
+    color: var(--grey);
+    cursor: default;
+
+    &:hover {
+      color: var(--grey);
+    }
+  }
+
   ${(props) =>
     props.secondary &&
     css`

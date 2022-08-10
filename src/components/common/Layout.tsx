@@ -5,6 +5,7 @@ import { GlobalStyles } from "@app/styles/GlobalStyles";
 import { Typography } from "@app/styles/Typography";
 import { Footer } from "@app/components/common/Footer";
 import { SEO } from "@app/components/common/SEO";
+import { GoogleAnalytics } from "@app/components/common/GoogleAnalytics";
 
 const ContentStyled = styled.div`
   margin: 0 auto;
@@ -15,6 +16,7 @@ const ContentStyled = styled.div`
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
+      <GoogleAnalytics />
       <SEO />
       <GlobalStyles />
       <Typography />

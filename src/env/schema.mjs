@@ -12,6 +12,9 @@ export const serverSchema = z.object({
   NEXTAUTH_URL: z.string().url(),
   GITHUB_ID: z.string(),
   GITHUB_SECRET: z.string(),
+  POSTMARK_SERVER_TOKEN: z.string(),
+  MAIL_FROM: z.string().email(),
+  MAIL_TO: z.string().email()
 });
 
 /**
@@ -21,6 +24,7 @@ export const serverSchema = z.object({
  */
 export const clientSchema = z.object({
   NEXT_PUBLIC_GOOGLE_MAPS_KEY: z.string(),
+  NEXT_PUBLIC_GOOGLE_ANALYTICS: z.string(),
 });
 
 /**
@@ -31,4 +35,5 @@ export const clientSchema = z.object({
  */
 export const clientEnv = {
   NEXT_PUBLIC_GOOGLE_MAPS_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY,
+  NEXT_PUBLIC_GOOGLE_ANALYTICS: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
 };

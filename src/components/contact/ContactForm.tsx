@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { SectionTitle } from "@app/components/common/SectionTitle";
-import { useContactForm } from "@app/hooks/useContactForm";
 import { Button as ButtonLink } from "@app/components/common/Button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { ContactFormData, ContactFormSchema } from "@app/types/contact.schema";
+import { trpc } from "@app/utils/trpc";
 
 const ContainerStyled = styled.div`
   grid-column: span 2;
@@ -44,75 +48,90 @@ const ContactFormStyled = styled.form`
     font-family: inherit;
   }
 
+  .error {
+    border-color: var(--red);
+  }
+
   button {
     width: 18rem;
   }
 `;
 
-export const ContactForm = () => {
-  const { submitContactForm, loading, values, updateValue } = useContactForm({
-    fullName: "",
-    email: "",
-    subject: "",
-    message: "",
-    mapleSyrup: "",
-  });
+const Error = styled.p`
+  padding: 0 1rem;
+  margin: 0;
+  color: var(--red);
+  font-size: 12px;
+`;
 
-  const Button = ButtonLink.withComponent("button");
+const Button = ButtonLink.withComponent("button");
+
+export const ContactForm = () => {
+  const { register, handleSubmit, formState, reset } = useForm<ContactFormData>(
+    {
+      resolver: zodResolver(ContactFormSchema),
+    },
+  );
+  const { errors } = formState;
+  const [sending, setSending] = useState(false);
+  const { mutate } = trpc.useMutation("contact.send");
+
+  // const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = async (data: ContactFormData) => {
+    setSending(true);
+    await mutate({ ...data });
+    reset();
+    setSending(false);
+  };
 
   return (
     <ContainerStyled>
       <SectionTitle>How Can I Help You?</SectionTitle>
-      <ContactFormStyled onSubmit={submitContactForm}>
-        <fieldset disabled={loading}>
+      <ContactFormStyled onSubmit={handleSubmit(onSubmit)}>
+        <fieldset disabled={sending}>
           <input
             placeholder="Full Name"
-            type="text"
-            name="fullName"
-            id="fullName"
-            value={values.fullName}
-            onChange={updateValue}
+            className={errors.fullName ? "error" : undefined}
+            {...register("fullName", { required: true })}
           />
+          {errors.fullName && <Error>{errors.fullName.message}</Error>}
           <input
             placeholder="E-Mail"
-            type="text"
-            name="email"
-            id="email"
-            value={values.email}
-            onChange={updateValue}
+            type="email"
+            className={errors.email ? "error" : undefined}
+            {...register("email", { required: true })}
           />
+          {errors.email && <Error>{errors.email.message}</Error>}
           <input
             placeholder="Subject"
-            type="text"
-            name="subject"
-            id="subject"
-            value={values.subject}
-            onChange={updateValue}
+            className={errors.subject ? "error" : undefined}
+            {...register("subject", { required: true })}
           />
+          {errors.subject && <Error>{errors.subject.message}</Error>}
           <input
             type="mapleSyrup"
-            name="mapleSyrup"
-            id="mapleSyrup"
-            value={values.mapleSyrup}
-            onChange={updateValue}
+            {...register("mapleSyrup")}
             className="mapleSyrup"
           />
         </fieldset>
-        <fieldset disabled={loading}>
+        <fieldset disabled={sending}>
           <textarea
             placeholder="Message"
-            name="message"
-            id="message"
-            value={values.message}
-            onChange={updateValue}
+            className={errors.message ? "error" : undefined}
+            {...register("message", { required: true })}
           />
+          {errors.message && <Error>{errors.message.message}</Error>}
         </fieldset>
-        <fieldset disabled={loading}>
-          <Button type="submit" disabled={loading}>
-            <span aria-live="assertive" aria-atomic="true">
-              {loading ? "Sending message..." : ""}
-            </span>
-            {loading ? "" : "Send message"}
+        <fieldset>
+          <Button type="submit" disabled={sending}>
+            {!sending && "Send message"}
+            {sending && (
+              <img
+                src="/assets/three-dots-loader.svg"
+                alt="loading"
+                style={{ width: "50px" }}
+              />
+            )}
           </Button>
         </fieldset>
       </ContactFormStyled>
