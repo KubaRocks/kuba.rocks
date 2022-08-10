@@ -1,4 +1,4 @@
-import { trpc } from "@app/utils/trpc";
+import { inferQueryOutput } from "@app/utils/trpc";
 import styled, { keyframes } from "styled-components";
 import { SectionTitle } from "@app/components/common/SectionTitle";
 import React from "react";
@@ -69,25 +69,25 @@ const ClientsList = styled.ul`
   }
 `;
 
-export const ClientsCarousel = () => {
-  const { data, isLoading } = trpc.useQuery(["clients.getAll"]);
+type ClientQueryResult = inferQueryOutput<"clients.getAll">[number];
 
-  if (isLoading) return <p>Loading...</p>;
-
+export const ClientsCarousel: React.FC<{ clients: ClientQueryResult[] }> = ({
+  clients,
+}) => {
   return (
     <ClientsSection>
       <SectionTitle>Clients</SectionTitle>
       <ClientsStyled>
         <ClientsList>
-          {data &&
-            data.map((client) => (
+          {clients &&
+            clients.map((client) => (
               <Client key={client.id} logo={client.logo} name={client.name} />
             ))}
         </ClientsList>
         {/* Stupid fix to make it infinite */}
         <ClientsList>
-          {data &&
-            data.map((client) => (
+          {clients &&
+            clients.map((client) => (
               <Client key={client.id} logo={client.logo} name={client.name} />
             ))}
         </ClientsList>
@@ -99,11 +99,13 @@ export const ClientsCarousel = () => {
 const ClientStyled = styled.li`
   opacity: 0.5;
   transition: all 0.3s ease-in-out;
+
   img {
     color: #eee;
     max-width: none;
     height: 25px;
   }
+
   &:hover {
     opacity: 1;
   }

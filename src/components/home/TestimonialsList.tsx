@@ -1,7 +1,8 @@
-import { inferQueryOutput, trpc } from "@app/utils/trpc";
+import { inferQueryOutput } from "@app/utils/trpc";
 import { TestimonialItem } from "@app/components/home/TestimonialItem";
 import styled from "styled-components";
 import { SectionTitle } from "@app/components/common/SectionTitle";
+import React from "react";
 
 type TestimonialsList = inferQueryOutput<"testimonials.getAll">;
 export type Testimonial = TestimonialsList[number];
@@ -20,16 +21,14 @@ const TestimonialsSection = styled.section`
   margin: 2rem 0;
 `;
 
-export const TestimonialsList = () => {
-  const { data, isLoading } = trpc.useQuery(["testimonials.getAll"]);
-
-  if (isLoading) return <p>Loading...</p>;
-
+export const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({
+  testimonials,
+}) => {
   return (
     <TestimonialsSection>
       <SectionTitle>Testimonials</SectionTitle>
       <TestimonialsGrid>
-        {data?.map((testimonial) => (
+        {testimonials?.map((testimonial) => (
           <TestimonialItem key={testimonial.id} {...testimonial} />
         ))}
       </TestimonialsGrid>
