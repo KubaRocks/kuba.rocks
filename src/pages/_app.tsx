@@ -1,21 +1,28 @@
 // src/pages/_app.tsx
+import React from "react";
 import { withTRPC } from "@trpc/next";
 import type { AppRouter } from "@app/server/router";
 import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
 import { Layout } from "@app/components/common/Layout";
+import { GlobalStyle } from "@app/styles/GlobalStyle";
+import { Typography } from "@app/styles/Typography";
 
 const MyApp: AppType = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </SessionProvider>
+    <>
+      <GlobalStyle />
+      <Typography />
+      <SessionProvider session={session}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SessionProvider>
+    </>
   );
 };
 
