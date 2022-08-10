@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { Header } from "@app/components/common/Header";
 import styled from "styled-components";
+import { GlobalStyles } from "@app/styles/GlobalStyles";
 import { Typography } from "@app/styles/Typography";
 import { Footer } from "@app/components/common/Footer";
 import { SEO } from "@app/components/common/SEO";
@@ -17,6 +18,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     <>
       <GoogleAnalytics />
       <SEO />
+      <GlobalStyles />
       <Typography />
       <Header />
       <ContentStyled>{children}</ContentStyled>
