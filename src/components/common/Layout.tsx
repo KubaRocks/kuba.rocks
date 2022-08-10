@@ -1,7 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { Header } from "@app/components/common/Header";
 import styled from "styled-components";
-import { Typography } from "@app/styles/Typography";
 import { Footer } from "@app/components/common/Footer";
 import { SEO } from "@app/components/common/SEO";
 import { GoogleAnalytics } from "@app/components/common/GoogleAnalytics";
@@ -17,7 +16,6 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     <>
       <GoogleAnalytics />
       <SEO />
-      <Typography />
       <Header />
       <ContentStyled>{children}</ContentStyled>
       <Footer />
