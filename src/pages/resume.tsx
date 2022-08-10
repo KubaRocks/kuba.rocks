@@ -1,10 +1,12 @@
-import { NextPage } from "next";
-import { inferQueryOutput, trpc } from "@app/utils/trpc";
+import { GetStaticProps, NextPage } from "next";
+import { inferQueryOutput } from "@app/utils/trpc";
 import styled from "styled-components";
 import { PageTitle } from "@app/components/common/PageTitle";
 import { SectionTitle } from "@app/components/common/SectionTitle";
 import { ResumeItem } from "@app/components/resume/ResumeItem";
 import { useFunFacts } from "@app/hooks/useFunFacts";
+import { prisma } from "@app/server/db/client";
+import safeJsonStringify from "safe-json-stringify";
 
 const ResumePageStyled = styled.section`
   display: grid;
@@ -24,16 +26,11 @@ export const ListStyled = styled.ul`
 export type Experience = inferQueryOutput<"experience.getAll">[number];
 export type Education = inferQueryOutput<"education.getAll">[number];
 
-const ResumePage: NextPage = () => {
-  const { data: experience, isLoading: experienceLoading } = trpc.useQuery([
-    "experience.getAll",
-  ]);
-  const { data: education, isLoading: educationLoading } = trpc.useQuery([
-    "education.getAll",
-  ]);
+const ResumePage: NextPage<{
+  experience: Experience[];
+  education: Education[];
+}> = ({ experience, education }) => {
   const { yearsOfExperience } = useFunFacts();
-
-  if (experienceLoading || educationLoading) return <p>Loading...</p>;
 
   return (
     <>
@@ -72,3 +69,23 @@ const ResumePage: NextPage = () => {
 };
 
 export default ResumePage;
+
+const getExperience = async () => {
+  return prisma.experience.findMany();
+};
+
+const getEducation = async () => {
+  return prisma.education.findMany();
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const experience = await getExperience();
+  const education = await getEducation();
+
+  return {
+    props: {
+      experience: JSON.parse(safeJsonStringify(experience)),
+      education: JSON.parse(safeJsonStringify(education)),
+    },
+  };
+};

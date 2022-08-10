@@ -21,7 +21,7 @@ const ListStyled = styled.ul`
   }
 `;
 
-export const SocialLinks = () => {
+export const ContactChannels = () => {
   return (
     <IconContext.Provider value={{ className: "icons" }}>
       <ListStyled className="socialLinks">

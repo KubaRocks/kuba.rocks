@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SocialLinks } from "@app/components/common/SocialLinks";
+import { ContactChannels } from "@app/components/common/ContactChannels";
 
 const FooterStyled = styled.footer`
   position: absolute;
@@ -39,7 +39,7 @@ const FooterStyled = styled.footer`
 export const Footer = () => (
   <FooterStyled>
     <nav>
-      <SocialLinks />
+      <ContactChannels />
     </nav>
     <div>
       &copy; {new Date().getFullYear()} <span>by Kuba Florczuk</span>

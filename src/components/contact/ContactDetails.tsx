@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ImLocation, ImMobile, ImUsers } from "react-icons/im";
 import React, { PropsWithChildren, ReactElement } from "react";
-import { SocialLinks } from "@app/components/common/SocialLinks";
+import { ContactChannels } from "@app/components/common/ContactChannels";
 
 const ContactDetailsStyled = styled.div`
   display: grid;
@@ -25,7 +25,7 @@ export const ContactDetails = () => (
     </ContactDetailItem>
     <ContactDetailItem icon={<ImUsers />}>
       <h4>Socials</h4>
-      <SocialLinks />
+      <ContactChannels />
     </ContactDetailItem>
   </ContactDetailsStyled>
 );

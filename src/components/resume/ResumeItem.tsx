@@ -70,8 +70,8 @@ type Item = Pick<Experience, "title" | "description" | "company"> & {
 
 export const ResumeItem: React.FC<{ resumeItem: Item }> = ({ resumeItem }) => {
   const formatYears = (start: Date, end?: Date) => {
-    const startYear = start.getFullYear();
-    const endYear = end ? end.getFullYear() : "now";
+    const startYear = new Date(start).getFullYear();
+    const endYear = end ? new Date(end).getFullYear() : "now";
 
     return startYear === endYear || !endYear
       ? startYear
@@ -81,7 +81,7 @@ export const ResumeItem: React.FC<{ resumeItem: Item }> = ({ resumeItem }) => {
   return (
     <ResumeItemStyled>
       <h5>
-        {resumeItem.date && resumeItem.date.getFullYear()}
+        {resumeItem.date && new Date(resumeItem.date).getFullYear()}
         {resumeItem.startDate &&
           formatYears(resumeItem.startDate, resumeItem.endDate ?? undefined)}
       </h5>
