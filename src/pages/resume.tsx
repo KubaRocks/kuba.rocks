@@ -70,22 +70,16 @@ const ResumePage: NextPage<{
 
 export default ResumePage;
 
-const getExperience = async () => {
-  return prisma.experience.findMany();
-};
-
-const getEducation = async () => {
-  return prisma.education.findMany();
-};
-
 export const getStaticProps: GetStaticProps = async () => {
-  const experience = await getExperience();
-  const education = await getEducation();
+  const experience = await prisma.experience.findMany();
+  const education = await prisma.education.findMany();
+  const DAY_IN_SECONDS = 60 * 60 * 24;
 
   return {
     props: {
       experience: JSON.parse(safeJsonStringify(experience)),
       education: JSON.parse(safeJsonStringify(education)),
     },
+    revalidate: DAY_IN_SECONDS,
   };
 };

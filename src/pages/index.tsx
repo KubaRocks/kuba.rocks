@@ -6,29 +6,18 @@ import styled from "styled-components";
 import { FunFacts } from "@app/components/home/FunFacts";
 import { Technologies } from "@app/components/home/Technologies";
 import React from "react";
-import { AsyncReturnType } from "type-fest";
 import { prisma } from "@app/server/db/client";
+import safeJsonStringify from "safe-json-stringify";
+import { Client, Testimonial } from ".prisma/client";
 
 const HomePageStyled = styled.div`
   max-width: var(--maxWidth);
   margin: 0 auto 6rem;
 `;
 
-const getTestimonials = async () => {
-  return prisma.testimonial.findMany({
-    where: { hidden: false },
-  });
-};
-
-const getClients = async () => {
-  return prisma.client.findMany({
-    where: { hidden: false },
-  });
-};
-
 const Home: NextPage<{
-  testimonials: AsyncReturnType<typeof getTestimonials>;
-  clients: AsyncReturnType<typeof getClients>;
+  testimonials: Testimonial[];
+  clients: Client[];
 }> = ({ testimonials, clients }) => {
   return (
     <HomePageStyled>
@@ -44,20 +33,15 @@ const Home: NextPage<{
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const testimonials = (await getTestimonials()).map((testimonial) => ({
-    ...testimonial,
-    createdAt: testimonial.createdAt.toString(),
-  }));
-  const clients = (await getClients()).map((client) => ({
-    ...client,
-    createdAt: client.createdAt.toString(),
-  }));
+  const withoutHidden = { where: { hidden: false } };
+  const testimonials = prisma.testimonial.findMany(withoutHidden);
+  const clients = prisma.client.findMany(withoutHidden);
   const DAY_IN_SECONDS = 60 * 60 * 24;
 
   return {
     props: {
-      testimonials,
-      clients,
+      testimonials: JSON.parse(safeJsonStringify(testimonials)),
+      clients: JSON.parse(safeJsonStringify(clients)),
     },
     revalidate: DAY_IN_SECONDS,
   };
