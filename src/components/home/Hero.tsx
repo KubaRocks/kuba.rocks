@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useFunFacts } from "@app/hooks/useFunFacts";
 import Image from "next/dist/client/future/image";
 import { useState } from "react";
+import Link from "next/link";
 
 const HeroStyled = styled.section`
   display: grid;
@@ -121,13 +122,9 @@ export const Hero = () => {
           <Button href={resumeUrl} download>
             Download CV
           </Button>
-          <Button
-            href="/contact"
-            onClick={() => router.push("/contact")}
-            secondary
-          >
-            Contact
-          </Button>
+          <Link href="/contact">
+            <Button secondary>Contact</Button>
+          </Link>
         </p>
       </div>
     </HeroStyled>

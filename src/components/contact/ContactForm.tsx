@@ -76,7 +76,6 @@ export const ContactForm = () => {
   const [sending, setSending] = useState(false);
   const { mutate } = trpc.useMutation("contact.send");
 
-  // const onSubmit = handleSubmit((data) => console.log(data));
   const onSubmit = async (data: ContactFormData) => {
     setSending(true);
     await mutate({ ...data });
