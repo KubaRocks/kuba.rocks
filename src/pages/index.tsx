@@ -1,15 +1,16 @@
+import React from "react";
 import type { GetStaticProps, NextPage } from "next";
-import { Hero } from "@app/components/home/Hero";
-import { TestimonialsList } from "@app/components/home/TestimonialsList";
-import { ClientsCarousel } from "@app/components/home/ClientsCarousel";
 import styled from "styled-components";
+import safeJsonStringify from "safe-json-stringify";
+import { Hero } from "@app/components/home/Hero";
+import { Testimonials } from "@app/components/home/Testimonials";
+import { ClientsCarousel } from "@app/components/home/ClientsCarousel";
 import { FunFacts } from "@app/components/home/FunFacts";
 import { Technologies } from "@app/components/home/Technologies";
-import React from "react";
 import { prisma } from "@app/server/db/client";
-import safeJsonStringify from "safe-json-stringify";
-import { Client, Testimonial } from ".prisma/client";
 import { useFunFacts } from "@app/hooks/useFunFacts";
+import { Client, Testimonial } from ".prisma/client";
+import { DAY_IN_SECONDS } from "@app/utils/dateHelpers";
 
 const HomePageStyled = styled.div`
   max-width: var(--maxWidth);
@@ -32,7 +33,7 @@ const Home: NextPage<{
           sweet two-year-old girl. Huge fan of basketball and comics.`}
       />
       <Technologies />
-      <TestimonialsList testimonials={testimonials} />
+      <Testimonials testimonials={testimonials} />
       <ClientsCarousel clients={clients} />
       <FunFacts />
     </HomePageStyled>
@@ -45,7 +46,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const withoutHidden = { where: { hidden: false } };
   const testimonials = await prisma.testimonial.findMany(withoutHidden);
   const clients = await prisma.client.findMany(withoutHidden);
-  const DAY_IN_SECONDS = 60 * 60 * 24;
 
   return {
     props: {

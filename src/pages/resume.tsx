@@ -1,12 +1,13 @@
 import { GetStaticProps, NextPage } from "next";
-import { inferQueryOutput } from "@app/utils/trpc";
 import styled from "styled-components";
+import safeJsonStringify from "safe-json-stringify";
+import { inferQueryOutput } from "@app/utils/trpc";
 import { PageTitle } from "@app/components/common/PageTitle";
 import { SectionTitle } from "@app/components/common/SectionTitle";
 import { ResumeItem } from "@app/components/resume/ResumeItem";
 import { useFunFacts } from "@app/hooks/useFunFacts";
 import { prisma } from "@app/server/db/client";
-import safeJsonStringify from "safe-json-stringify";
+import { DAY_IN_SECONDS } from "@app/utils/dateHelpers";
 
 const ResumePageStyled = styled.section`
   display: grid;
@@ -73,7 +74,6 @@ export default ResumePage;
 export const getStaticProps: GetStaticProps = async () => {
   const experience = await prisma.experience.findMany();
   const education = await prisma.education.findMany();
-  const DAY_IN_SECONDS = 60 * 60 * 24;
 
   return {
     props: {
