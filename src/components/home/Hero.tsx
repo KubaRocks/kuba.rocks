@@ -2,8 +2,6 @@ import clouds from "public/assets/me/look-into-clouds.png";
 import rock from "public/assets/me/rock.png";
 import styled from "styled-components";
 import { Button } from "@app/components/common/Button";
-import { useRouter } from "next/router";
-import { useFunFacts } from "@app/hooks/useFunFacts";
 import Image from "next/dist/client/future/image";
 import { useState } from "react";
 import Link from "next/link";
@@ -76,9 +74,19 @@ const PortraitStyled = styled.div`
   }
 `;
 
-export const Hero = () => {
-  const router = useRouter();
-  const { yearsOfExperience } = useFunFacts();
+export const Hero: React.FC<{
+  title: string;
+  subtitle: string;
+  content: string;
+  displayButtons?: boolean;
+  rocksModeOnly?: boolean;
+}> = ({
+  title,
+  subtitle,
+  content,
+  displayButtons = true,
+  rocksModeOnly = false,
+}) => {
   const [hover, setHover] = useState(false);
   const resumeUrl = "/assets/me/CV - Kuba Florczuk - 2022 EN.pdf";
 
@@ -88,14 +96,16 @@ export const Hero = () => {
         onMouseOver={() => setHover(true)}
         onMouseOut={() => setHover(false)}
       >
-        <Image
-          src={clouds}
-          alt="Kuba Florczuk"
-          width={360}
-          height={360}
-          priority
-          className={!hover ? undefined : "hide"}
-        />
+        {!rocksModeOnly && (
+          <Image
+            src={clouds}
+            alt="Kuba Florczuk"
+            width={360}
+            height={360}
+            priority
+            className={!hover ? undefined : "hide"}
+          />
+        )}
 
         <Image
           src={rock}
@@ -103,29 +113,26 @@ export const Hero = () => {
           width={360}
           height={360}
           priority
-          className={hover ? undefined : "hide"}
+          className={rocksModeOnly || hover ? undefined : "hide"}
         />
       </PortraitStyled>
 
       <div>
-        <h4>Full-Stack Developer, Team Leader</h4>
-        <h1>Kuba Florczuk</h1>
+        <h4>{subtitle}</h4>
+        <h1>{title}</h1>
 
-        <p>
-          I&apos;m a Full-Stack Developer and Team Leader based in Warsaw,
-          Poland, with {yearsOfExperience} years of commercial experience in Web
-          Development and Team Management. Also a husband and father of one
-          sweet two-year-old girl. Huge fan of basketball and comics.
-        </p>
+        <p>{content}</p>
 
-        <p>
-          <Button href={resumeUrl} download>
-            Download CV
-          </Button>
-          <Link href="/contact">
-            <Button secondary>Contact</Button>
-          </Link>
-        </p>
+        {displayButtons && (
+          <p>
+            <Button href={resumeUrl} download>
+              Download CV
+            </Button>
+            <Link href="/contact">
+              <Button secondary>Contact</Button>
+            </Link>
+          </p>
+        )}
       </div>
     </HeroStyled>
   );
