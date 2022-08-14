@@ -1,13 +1,15 @@
 import { GetStaticProps, NextPage } from "next";
 import styled from "styled-components";
-import safeJsonStringify from "safe-json-stringify";
-import { inferQueryOutput } from "@app/utils/trpc";
+import { inferQueryOutput, trpc } from "@app/utils/trpc";
 import { PageTitle } from "@app/components/common/PageTitle";
 import { SectionTitle } from "@app/components/common/SectionTitle";
 import { ResumeItem } from "@app/components/resume/ResumeItem";
 import { useFunFacts } from "@app/hooks/useFunFacts";
-import { prisma } from "@app/server/db/client";
 import { DAY_IN_SECONDS } from "@app/utils/dateHelpers";
+import { createSSGHelpers } from "@trpc/react/ssg";
+import { appRouter } from "@app/server/router";
+import { createContext } from "@app/server/router/context";
+import superjson from "superjson";
 
 const ResumePageStyled = styled.section`
   display: grid;
@@ -27,11 +29,10 @@ export const ListStyled = styled.ul`
 export type Experience = inferQueryOutput<"experience.getAll">[number];
 export type Education = inferQueryOutput<"education.getAll">[number];
 
-const ResumePage: NextPage<{
-  experience: Experience[];
-  education: Education[];
-}> = ({ experience, education }) => {
+const ResumePage: NextPage = () => {
   const { yearsOfExperience } = useFunFacts();
+  const { data: experience } = trpc.useQuery(["experience.getAll"]);
+  const { data: education } = trpc.useQuery(["education.getAll"]);
 
   return (
     <>
@@ -72,13 +73,18 @@ const ResumePage: NextPage<{
 export default ResumePage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const experience = await prisma.experience.findMany();
-  const education = await prisma.education.findMany();
+  const ssg = createSSGHelpers({
+    router: appRouter,
+    ctx: await createContext(),
+    transformer: superjson,
+  });
+
+  await ssg.fetchQuery("experience.getAll");
+  await ssg.fetchQuery("education.getAll");
 
   return {
     props: {
-      experience: JSON.parse(safeJsonStringify(experience)),
-      education: JSON.parse(safeJsonStringify(education)),
+      trpcState: ssg.dehydrate(),
     },
     revalidate: DAY_IN_SECONDS,
   };
