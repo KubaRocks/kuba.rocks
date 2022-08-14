@@ -1,15 +1,17 @@
 import React from "react";
 import type { GetStaticProps, NextPage } from "next";
 import styled from "styled-components";
-import safeJsonStringify from "safe-json-stringify";
 import { Hero } from "@app/components/home/Hero";
 import { Testimonials } from "@app/components/home/Testimonials";
 import { ClientsCarousel } from "@app/components/home/ClientsCarousel";
 import { FunFacts } from "@app/components/home/FunFacts";
 import { Technologies } from "@app/components/home/Technologies";
-import { prisma } from "@app/server/db/client";
 import { useFunFacts } from "@app/hooks/useFunFacts";
-import { Client, Testimonial } from ".prisma/client";
+import { createSSGHelpers } from "@trpc/react/ssg";
+import superjson from "superjson";
+import { appRouter } from "@app/server/router";
+import { createContext } from "@app/server/router/context";
+import { trpc } from "@app/utils/trpc";
 import { DAY_IN_SECONDS } from "@app/utils/dateHelpers";
 
 const HomePageStyled = styled.div`
@@ -17,11 +19,14 @@ const HomePageStyled = styled.div`
   margin: 0 auto 6rem;
 `;
 
-const Home: NextPage<{
-  testimonials: Testimonial[];
-  clients: Client[];
-}> = ({ testimonials, clients }) => {
+const Home: NextPage = () => {
   const { yearsOfExperience } = useFunFacts();
+  const { data: testimonials } = trpc.useQuery(["testimonials.getAll"]);
+  const { data: clients } = trpc.useQuery(["clients.getAll"]);
+
+  // just to make TypeScript happy, as this will never happen due to static pre-render
+  if (!testimonials || !clients) return null;
+
   return (
     <HomePageStyled>
       <Hero
@@ -43,14 +48,18 @@ const Home: NextPage<{
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const withoutHidden = { where: { hidden: false } };
-  const testimonials = await prisma.testimonial.findMany(withoutHidden);
-  const clients = await prisma.client.findMany(withoutHidden);
+  const ssg = createSSGHelpers({
+    router: appRouter,
+    ctx: await createContext(),
+    transformer: superjson,
+  });
+
+  await ssg.fetchQuery("testimonials.getAll");
+  await ssg.fetchQuery("clients.getAll");
 
   return {
     props: {
-      testimonials: JSON.parse(safeJsonStringify(testimonials)),
-      clients: JSON.parse(safeJsonStringify(clients)),
+      trpcState: ssg.dehydrate(),
     },
     revalidate: DAY_IN_SECONDS,
   };
