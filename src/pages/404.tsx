@@ -8,10 +8,14 @@ const NotFoundPage: NextPage = () => {
       <Hero
         title="404"
         subtitle="Page Not Found"
-        content="buddy... I don't know how you got here, but there is nothing to see..."
         displayButtons={false}
         rocksModeOnly={true}
-      />
+      >
+        <p>
+          buddy... I don&apos;t know how you got here, but there is nothing to
+          see...
+        </p>
+      </Hero>
     </div>
   );
 };
