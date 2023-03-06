@@ -10,13 +10,13 @@ import rock from "public/assets/me/rock.png";
 export const Hero: React.FC<{
   title: string;
   subtitle: string;
-  content: string;
+  children: React.ReactNode;
   displayButtons?: boolean;
   rocksModeOnly?: boolean;
 }> = ({
   title,
   subtitle,
-  content,
+  children,
   displayButtons = true,
   rocksModeOnly = false,
 }) => {
@@ -58,7 +58,7 @@ export const Hero: React.FC<{
         <h4>{subtitle}</h4>
         <h1>{title}</h1>
 
-        <p>{content}</p>
+        {children}
 
         {displayButtons && (
           <p>

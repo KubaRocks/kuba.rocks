@@ -29,14 +29,14 @@ const Home: NextPage = () => {
 
   return (
     <HomePageStyled>
-      <Hero
-        title="Kuba Florczuk"
-        subtitle="Full-Stack Developer, Team Leader"
-        content={`I'm a Full-Stack Developer and Team Leader based in Warsaw,
-          Poland, with ${yearsOfExperience} years of commercial experience in Web
+      <Hero title="Kuba Florczuk" subtitle="Full-Stack Developer, Team Leader">
+        <p>
+          I&apos;m a Full-Stack Developer and Team Leader based in Warsaw,
+          Poland, with {yearsOfExperience} years of commercial experience in Web
           Development and Team Management. Also a husband and father of one
-          sweet four-year-old girl. Huge fan of basketball and comics.`}
-      />
+          sweet four-year-old girl. Huge fan of basketball and comics.
+        </p>
+      </Hero>
       <Technologies />
       <Testimonials testimonials={testimonials} />
       <ClientsCarousel clients={clients} />
