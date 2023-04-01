@@ -21,7 +21,7 @@ export const Hero: React.FC<{
   rocksModeOnly = false,
 }) => {
   const [hover, setHover] = useState(false);
-  const resumeUrl = "/assets/me/CV - Kuba Florczuk - 2022 EN.pdf";
+  const resumeUrl = "/assets/me/CV - Kuba Florczuk - 2023 EN.pdf";
 
   return (
     <HeroStyled>
