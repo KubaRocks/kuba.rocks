@@ -1,5 +1,4 @@
-import Image from "next/dist/client/future/image";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Button } from "@app/components/common/Button";
 import { HeroStyled, PortraitStyled } from "./styles";
@@ -20,39 +19,15 @@ export const Hero: React.FC<{
   displayButtons = true,
   rocksModeOnly = false,
 }) => {
-  const [hover, setHover] = useState(false);
   const resumeUrl = "/assets/me/CV - Kuba Florczuk - 2023 EN.pdf";
 
   return (
     <HeroStyled>
-      <PortraitStyled
-        onMouseOver={() => setHover(true)}
-        onMouseOut={() => setHover(false)}
-      >
-        {!rocksModeOnly && (
-          <Image
-            src={clouds}
-            alt="Kuba Florczuk"
-            width={360}
-            height={360}
-            sizes="100vw"
-            style={{ width: "100%", height: "auto" }}
-            priority
-            className={!hover ? undefined : "hide"}
-          />
-        )}
-
-        <Image
-          src={rock}
-          alt="Kuba Florczuk"
-          width={360}
-          height={360}
-          sizes="100vw"
-          style={{ width: "100%", height: "auto" }}
-          priority
-          className={rocksModeOnly || hover ? undefined : "hide"}
-        />
-      </PortraitStyled>
+      {rocksModeOnly ? (
+        <PortraitStyled bg={rock.src} />
+      ) : (
+        <PortraitStyled bg={clouds.src} bgHover={rock.src} />
+      )}
 
       <div>
         <h4>{subtitle}</h4>

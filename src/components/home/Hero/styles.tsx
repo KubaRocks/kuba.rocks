@@ -52,7 +52,7 @@ export const HeroStyled = styled.section`
   }
 `;
 
-export const PortraitStyled = styled.div`
+export const PortraitStyled = styled.div<{ bg: string; bgHover?: string }>`
   width: 360px;
   height: 360px;
   border: 1.8rem solid white;
@@ -60,6 +60,18 @@ export const PortraitStyled = styled.div`
   overflow: hidden;
   --cast: 2px;
   box-shadow: var(--cast) var(--cast) 15px rgba(0, 0, 0, 0.2);
+  background: url(${(props) => props.bg}) no-repeat center center;
+  background-size: cover;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    ${({ bgHover }) =>
+      Boolean(bgHover) &&
+      `
+      background: url(${bgHover}) no-repeat center center;
+      background-size: cover;
+    `})}
+  }
 
   @media (max-width: 680px) {
     width: 250px;
