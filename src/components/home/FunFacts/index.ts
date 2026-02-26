@@ -1,1 +1,0 @@
-export { FunFacts } from "./FunFacts";
