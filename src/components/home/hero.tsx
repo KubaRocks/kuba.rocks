@@ -20,9 +20,9 @@ export function Hero() {
             </h1>
             <p className="mt-8 text-lg leading-relaxed text-muted md:text-xl">
               Based in Warsaw, Poland with over {years} years of commercial
-              experience. When I&apos;m not coding, I spend time with my wife and
-              daughter, play basketball, read comics, and drink way too much
-              coffee.
+              experience. When I&apos;m not coding, I spend time with my wife,
+              daughter and son, play basketball, read comics, and drink way too
+              much coffee.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
