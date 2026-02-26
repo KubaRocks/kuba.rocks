@@ -36,7 +36,7 @@ export default function ResumePage() {
     <main className="py-20 md:py-32">
       <div className="mx-auto max-w-[var(--width-content)] px-6">
         <div className="mb-16">
-          <hr className="divider-ember mb-6" />
+          <hr className="divider-accent mb-6" />
           <h1 className="font-display text-5xl tracking-tight md:text-6xl">
             Resume
           </h1>
@@ -44,7 +44,7 @@ export default function ResumePage() {
 
         <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
           <section>
-            <h2 className="mb-10 font-display text-3xl tracking-tight">
+            <h2 className="mb-10 text-2xl font-bold tracking-tight">
               Experience
             </h2>
             {experience.map((exp, i) => (
@@ -60,7 +60,7 @@ export default function ResumePage() {
           </section>
 
           <section>
-            <h2 className="mb-10 font-display text-3xl tracking-tight">
+            <h2 className="mb-10 text-2xl font-bold tracking-tight">
               Education
             </h2>
             {education.map((edu, i) => (

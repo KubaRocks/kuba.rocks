@@ -25,7 +25,7 @@ export function ContactForm() {
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
-        <p className="font-display text-2xl">Message sent!</p>
+        <p className="text-2xl font-bold">Message sent!</p>
         <p className="mt-2 text-muted">I&apos;ll get back to you soon.</p>
       </div>
     );

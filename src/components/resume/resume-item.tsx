@@ -19,7 +19,7 @@ export function ResumeItem({
       <p className="font-mono text-xs uppercase tracking-widest text-muted">
         {date}
       </p>
-      <h3 className="mt-1 font-display text-lg">{title}</h3>
+      <h3 className="mt-1 text-lg font-semibold">{title}</h3>
       <p className="text-sm font-medium text-accent">{subtitle}</p>
       {description && (
         <p className="mt-3 text-sm leading-relaxed text-muted">

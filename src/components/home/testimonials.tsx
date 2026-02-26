@@ -8,8 +8,8 @@ export function Testimonials() {
     <section className="py-20 md:py-28 bg-card">
       <div className="mx-auto max-w-[var(--width-content)] px-6">
         <div className="mb-12">
-          <hr className="divider-ember mb-6" />
-          <h2 className="font-display text-4xl tracking-tight md:text-5xl">
+          <hr className="divider-accent mb-6" />
+          <h2 className="text-3xl font-bold tracking-tight">
             What People Say
           </h2>
         </div>
@@ -19,12 +19,8 @@ export function Testimonials() {
               key={t.name}
               className="group relative rounded-2xl border border-border bg-background p-8 transition-shadow hover:shadow-lg hover:shadow-accent/5"
             >
-              <span className="absolute -top-4 left-8 font-display text-6xl leading-none text-accent/20">
-                &ldquo;
-              </span>
-              <p className="relative mt-2 leading-relaxed text-muted">
-                {t.content}
-              </p>
+              <div className="mb-4 h-1 w-8 rounded-full bg-accent/40" />
+              <p className="leading-relaxed text-muted">{t.content}</p>
               <footer className="mt-6 flex items-center gap-4 border-t border-border/50 pt-6">
                 <Image
                   src={t.photo}
