@@ -25,6 +25,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.58.1",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25.3.1",
     "@types/react": "^19.2.14",

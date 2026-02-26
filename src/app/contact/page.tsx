@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/contact-form";
+import { ContactMap } from "@/components/contact/map";
 import { EmailLink } from "@/components/contact/email-link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -25,6 +26,9 @@ const socialLinks = [
 export default function ContactPage() {
   return (
     <main>
+      {/* Full-width map — same config as previous site */}
+      <ContactMap />
+
       <div className="py-20 md:py-32">
         <div className="mx-auto max-w-[var(--width-content)] px-6">
           <div className="mb-16 max-w-2xl">
@@ -67,21 +71,6 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Full-width map */}
-      <div className="map-container w-full">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156388.35438!2d20.8211!3d52.2297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a88ead3fc!2sWarsaw%2C%20Poland!5e0!3m2!1sen!2spl!4v1"
-          width="100%"
-          height="400"
-          style={{ border: 0 }}
-          allowFullScreen={false}
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Warsaw, Poland"
-          className="block"
-        />
       </div>
     </main>
   );

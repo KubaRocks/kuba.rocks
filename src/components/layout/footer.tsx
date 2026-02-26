@@ -26,8 +26,9 @@ export function Footer() {
       <div className="mx-auto max-w-[var(--width-content)] px-6 py-12">
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
           <div>
-            <p className="font-display text-lg">
-              kuba<span className="text-accent">.rocks</span>
+            <p className="text-lg">
+              <span className="font-bold">kuba</span>
+              <span className="font-light text-accent">.rocks</span>
             </p>
             <p className="mt-1 text-sm text-muted">
               &copy; {new Date().getFullYear()} All rights reserved.

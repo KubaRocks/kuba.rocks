@@ -147,22 +147,3 @@ body {
   border: none;
 }
 
-/* ── Map styling ── */
-.map-container iframe {
-  filter: grayscale(1) contrast(1.1) brightness(0.9);
-  transition: filter 0.3s ease;
-}
-
-.map-container:hover iframe {
-  filter: grayscale(0.5) contrast(1.05) brightness(0.95);
-}
-
-@media (prefers-color-scheme: dark) {
-  .map-container iframe {
-    filter: grayscale(1) invert(1) contrast(1.1) brightness(0.7) hue-rotate(180deg);
-  }
-
-  .map-container:hover iframe {
-    filter: grayscale(0.5) invert(1) contrast(1.05) brightness(0.75) hue-rotate(180deg);
-  }
-}
