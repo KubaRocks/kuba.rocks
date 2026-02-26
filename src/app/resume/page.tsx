@@ -33,13 +33,20 @@ export default function ResumePage() {
   const education = getEducation();
 
   return (
-    <main className="py-16 md:py-24">
+    <main className="py-20 md:py-32">
       <div className="mx-auto max-w-[var(--width-content)] px-6">
-        <h1 className="text-4xl font-bold mb-16">Resume</h1>
+        <div className="mb-16">
+          <hr className="divider-ember mb-6" />
+          <h1 className="font-display text-5xl tracking-tight md:text-6xl">
+            Resume
+          </h1>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">
           <section>
-            <h2 className="text-2xl font-bold mb-8">Experience</h2>
+            <h2 className="mb-10 font-display text-3xl tracking-tight">
+              Experience
+            </h2>
             {experience.map((exp, i) => (
               <ResumeItem
                 key={i}
@@ -53,7 +60,9 @@ export default function ResumePage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold mb-8">Education</h2>
+            <h2 className="mb-10 font-display text-3xl tracking-tight">
+              Education
+            </h2>
             {education.map((edu, i) => (
               <ResumeItem
                 key={i}

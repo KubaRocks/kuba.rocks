@@ -14,17 +14,27 @@ export function ResumeItem({
   highlights,
 }: ResumeItemProps) {
   return (
-    <div className="relative pl-8 pb-8 border-l border-border last:pb-0">
-      <div className="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full bg-accent" />
-      <p className="text-sm text-muted mb-1">{date}</p>
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="text-accent">{subtitle}</p>
-      {description && <p className="mt-2 text-muted">{description}</p>}
+    <div className="relative border-l border-border pb-10 pl-8 last:pb-0">
+      <div className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-accent bg-background" />
+      <p className="font-mono text-xs uppercase tracking-widest text-muted">
+        {date}
+      </p>
+      <h3 className="mt-1 font-display text-lg">{title}</h3>
+      <p className="text-sm font-medium text-accent">{subtitle}</p>
+      {description && (
+        <p className="mt-3 text-sm leading-relaxed text-muted">
+          {description}
+        </p>
+      )}
       {highlights && highlights.length > 0 && (
-        <ul className="mt-2 space-y-1">
+        <ul className="mt-3 space-y-1.5">
           {highlights.map((h, i) => (
-            <li key={i} className="text-sm text-muted">
-              &bull; {h}
+            <li
+              key={i}
+              className="flex items-start gap-2 text-sm leading-relaxed text-muted"
+            >
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent/60" />
+              {h}
             </li>
           ))}
         </ul>

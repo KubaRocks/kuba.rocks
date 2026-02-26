@@ -5,33 +5,42 @@ export function Hero() {
   const years = getYearsOfExperience();
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="relative overflow-hidden py-28 md:py-40">
+      {/* Decorative accent line */}
+      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-accent via-accent/20 to-transparent" />
+
       <div className="mx-auto max-w-[var(--width-content)] px-6">
-        <p className="text-accent font-mono text-sm mb-4">
-          Full-Stack Developer &amp; Team Leader
-        </p>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-          Kuba Florczuk
-        </h1>
-        <p className="text-xl text-muted max-w-2xl mb-8">
-          Based in Warsaw, Poland with over {years} years of commercial
-          experience. When I&apos;m not coding, I spend time with my wife and
-          daughter, play basketball, read comics, and drink way too much coffee.
-        </p>
-        <div className="flex gap-4">
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-lg bg-accent px-6 py-3 text-accent-foreground font-medium hover:opacity-90 transition-opacity"
-          >
-            Get in touch
-          </Link>
-          <a
-            href="/cv.pdf"
-            download
-            className="inline-flex items-center rounded-lg border border-border px-6 py-3 font-medium hover:bg-card transition-colors"
-          >
-            Download CV
-          </a>
+        <div className="stagger-children max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
+            Full-Stack Developer &amp; Team Leader
+          </p>
+          <h1 className="mt-6 font-display text-6xl leading-[1.1] tracking-tight md:text-8xl">
+            Kuba Florczuk
+          </h1>
+          <p className="mt-8 text-lg leading-relaxed text-muted md:text-xl">
+            Based in Warsaw, Poland with over {years} years of commercial
+            experience. When I&apos;m not coding, I spend time with my wife and
+            daughter, play basketball, read comics, and drink way too much
+            coffee.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/25"
+            >
+              Get in touch
+              <span className="transition-transform group-hover:translate-x-0.5">
+                &rarr;
+              </span>
+            </Link>
+            <a
+              href="/cv.pdf"
+              download
+              className="inline-flex items-center rounded-full border border-border px-7 py-3.5 text-sm font-semibold uppercase tracking-wider transition-colors hover:border-foreground hover:bg-foreground hover:text-background"
+            >
+              Download CV
+            </a>
+          </div>
         </div>
       </div>
     </section>

@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { Instrument_Serif, Outfit } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import "./globals.css";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -34,10 +47,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="min-h-screen bg-background text-foreground">
+    <html
+      lang="en"
+      className={`${instrumentSerif.variable} ${outfit.variable} ${GeistMono.variable}`}
+    >
+      <body className="grain min-h-screen bg-background text-foreground">
         <Header />
-        {children}
+        <div className="animate-in">{children}</div>
         <Footer />
       </body>
     </html>

@@ -22,24 +22,31 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-[var(--width-content)] flex-col items-center gap-4 px-6 py-8 md:flex-row md:justify-between">
-        <p className="text-sm text-muted">
-          &copy; {new Date().getFullYear()} kuba.rocks
-        </p>
-        <div className="flex gap-4">
-          {socialLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={link.label}
-              className="text-muted hover:text-foreground transition-colors"
-            >
-              <link.icon size={20} />
-            </a>
-          ))}
+    <footer className="border-t border-border/50">
+      <div className="mx-auto max-w-[var(--width-content)] px-6 py-12">
+        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
+          <div>
+            <p className="font-display text-lg">
+              kuba<span className="text-accent">.rocks</span>
+            </p>
+            <p className="mt-1 text-sm text-muted">
+              &copy; {new Date().getFullYear()} All rights reserved.
+            </p>
+          </div>
+          <div className="flex gap-5">
+            {socialLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="text-muted-foreground transition-colors hover:text-accent"
+              >
+                <link.icon size={20} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
