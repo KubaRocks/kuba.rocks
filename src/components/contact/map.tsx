@@ -80,7 +80,7 @@ export function ContactMap() {
   if (!apiKey) return null;
 
   return (
-    <div className="h-[25rem] w-full md:h-[54rem]">
+    <div className="h-[20rem] w-full md:h-[28rem]">
       <GoogleMapReact
         bootstrapURLKeys={{ key: apiKey }}
         defaultCenter={{ lat: 52.143945434324685, lng: 21.066256059149083 }}
