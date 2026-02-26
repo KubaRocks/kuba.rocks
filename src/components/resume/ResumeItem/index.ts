@@ -1,1 +1,0 @@
-export { ResumeItem } from "./ResumeItem";

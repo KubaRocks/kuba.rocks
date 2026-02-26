@@ -1,0 +1,18 @@
+[
+  {
+    name: "TypeScript",
+    description: "Strongly typed programming language that builds on JavaScript.",
+  },
+  {
+    name: "React",
+    description: "A library for building user interfaces \u2014 SPAs, mobile apps, and server-rendered applications.",
+  },
+  {
+    name: "JavaScript",
+    description: "The backbone of modern web development, from SPAs to server-side with Node.js.",
+  },
+  {
+    name: "Next.js",
+    description: "The React framework for production \u2014 server rendering, static generation, and TypeScript support.",
+  },
+]
