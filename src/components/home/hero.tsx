@@ -35,7 +35,7 @@ export function Hero() {
                 </span>
               </Link>
               <a
-                href="/cv.pdf"
+                href="/assets/me/CV - Kuba Florczuk - 2026 EN.pdf"
                 download
                 className="inline-flex items-center rounded-full border border-border px-7 py-3.5 text-sm font-semibold uppercase tracking-wider transition-colors hover:border-foreground hover:bg-foreground hover:text-background"
               >

@@ -1,16 +1,54 @@
 // Work experience, ordered by startDate descending (newest first)
 [
   {
+    company: "Inflect",
+    title: "Senior FullStack Engineer",
+    description: "Developed and optimized scalable web applications powering AI-driven products, working across the full stack with React, Next.js, and a Go backend. Played a key role in integrating AI capabilities — including OpenAI, Gemini, and MastraAI — into the platform, enabling intelligent knowledge base features and agentic AI workflows.",
+    highlights: [
+      "Building production-grade web applications with React, Next.js, Tailwind, and TypeScript",
+      "Integrating AI/LLM services (OpenAI, Gemini, MastraAI) and developing agentic AI features",
+      "Implementing cross-functional Slack integration to streamline team communication",
+      "Developing embeddable scripts and widgets using Vite and Rollup",
+      "Technologies: TypeScript, React, Next.js, Go, Tailwind, Vercel, GCP, CSS Modules, zod, Vite, Rollup, GitLab CI, Cloudflare, OpenAI, Gemini, MastraAI",
+    ],
+    startDate: "2024-04-01",
+    endDate: null,
+  },
+  {
+    company: "90 seconds",
+    title: "Senior FullStack Engineer",
+    description: "Worked on a microservice responsible for a core business process within a distributed architecture. Services communicated via GCP Pub/Sub, and the application was built with TypeScript using the T3 stack (Next.js, tRPC, Prisma).",
+    highlights: [
+      "Developing and maintaining microservices in a distributed, event-driven architecture",
+      "Building React interfaces with styled-components, react-query, and jotai for state management",
+      "Implementing authentication flows with Auth0 and data access via Prisma and GraphQL",
+      "Technologies: TypeScript, React, Next.js (T3 stack), Vite, styled-components, react-query, zod, GCP Pub/Sub, React Server Components, Auth0, GraphQL, Prisma",
+    ],
+    startDate: "2023-04-01",
+    endDate: "2023-12-31",
+  },
+  {
+    company: "stalykurs.pl",
+    title: "Principal Full-Stack Engineer",
+    description: "Long-term contract maintaining and evolving a CRM application built with React and Firebase. Responsible for the full development lifecycle — from feature implementation to deployment — using a modern TypeScript stack with Fastify on the backend.",
+    highlights: [
+      "Maintenance and feature development for a CRM application",
+      "Technologies: TypeScript, React, Firebase, Fastify, styled-components, react-query, zod, CircleCI",
+    ],
+    startDate: "2021-11-01",
+    endDate: "2025-01-31",
+  },
+  {
     company: "X-Team",
     title: "Senior Software Engineer",
-    description: "As one of X-Team's Senior Software Engineers, I'm part of the team which was assigned to work together with Cushon's team on one of their projects, used by thousands of people in UK every day. Working on this project, I got to fully leverage my back-end development skills along with my MySQL database, and overall security design knowledge Among other things, I was tasked with:",
+    description: "As one of X-Team's Senior Software Engineers, I was part of the team assigned to work with Cushon's team on one of their projects, used by thousands of people in the UK every day. Working on this project, I got to fully leverage my back-end development skills along with my MySQL database and overall security design knowledge. Among other things, I was tasked with:",
     highlights: [
       "Integrating with third party APIs",
-      "Writing automation for deploying API documentation to SwaggerHub",
-      "Refactoring, writing unit, integration and functional tests",
+      "Designing automation for deploying API documentation to SwaggerHub",
+      "Refactoring, writing unit, integration and functional tests, implementing new features",
     ],
     startDate: "2021-08-01",
-    endDate: null,
+    endDate: "2023-03-31",
   },
   {
     company: "transferGo",

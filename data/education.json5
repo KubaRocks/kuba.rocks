@@ -1,6 +1,12 @@
 // Education and courses, ordered by date descending (newest first)
 [
   {
+    institution: "boot.dev",
+    title: "Backend Development & Computer Science Fundamentals",
+    description: "Comprehensive self-paced curriculum covering backend development and CS fundamentals. Completed 11 courses spanning Python, Go, C, SQL, Linux, Git, data structures & algorithms, HTTP networking, object-oriented and functional programming, and memory management.",
+    date: "2026-01-31",
+  },
+  {
     institution: "LevelUp",
     title: "Modern CSS Design Systems",
     description: "Creating a modern CSS Design System, which is very flexible, easy to maintain and modify.",
