@@ -2,6 +2,7 @@ export interface Testimonial {
   name: string;
   title: string;
   photo: string;
+  headline: string;
   content: string;
 }
 
@@ -26,7 +27,10 @@ export interface Education {
   date: string;
 }
 
-export interface Technology {
+export interface SkillTier {
+  tag: string;
   name: string;
-  description: string;
+  blurb: string;
+  kind: "franchise" | "breakout" | "chips" | "retired";
+  items: { name: string; note?: string }[];
 }

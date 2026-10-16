@@ -2,76 +2,82 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactMap } from "@/components/contact/map";
 import { EmailLink } from "@/components/contact/email-link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { CourtLines } from "@/components/ui/court-lines";
+import { SectionHead } from "@/components/ui/section-head";
 
 export const metadata: Metadata = {
   title: "Contact",
 };
 
 const socialLinks = [
-  { href: "https://github.com/KubaRocks", icon: FaGithub, label: "KubaRocks" },
+  { href: "https://github.com/KubaRocks", network: "GitHub", label: "KubaRocks" },
   {
     href: "https://www.linkedin.com/in/kubaflorczuk/",
-    icon: FaLinkedin,
+    network: "LinkedIn",
     label: "kubaflorczuk",
   },
-  {
-    href: "https://twitter.com/KubaRocks",
-    icon: FaXTwitter,
-    label: "@KubaRocks",
-  },
+  { href: "https://twitter.com/KubaRocks", network: "Twitter", label: "@KubaRocks" },
 ];
+
+const rowClass =
+  "flex flex-col gap-1 border-b border-line py-4 pl-0 no-underline transition-[padding,box-shadow,color] hover:pl-4 hover:text-chalk hover:shadow-[inset_4px_0_0_var(--color-orange)]";
 
 export default function ContactPage() {
   return (
-    <main>
-      {/* Full-width map — same config as previous site */}
-      <ContactMap />
+    <main id="main">
+      <section
+        aria-labelledby="contact-title"
+        className="relative overflow-clip bg-[radial-gradient(1000px_500px_at_80%_0%,rgb(242_107_29/0.1),transparent_60%)] py-[clamp(48px,7vw,96px)]"
+      >
+        <CourtLines className="-right-[10%] -top-[60px] w-[min(900px,120vw)]" />
+        <div className="wrap relative">
+          <p className="eyebrow mb-6 animate-rise">
+            Final <span aria-hidden="true">·</span> On the clock
+          </p>
+          <SectionHead
+            as="h1"
+            id="contact-title"
+            quarter="Final"
+            quarterLabel="TRYOUT"
+            title="Book a tryout"
+            intro="Have a project in mind, a roster spot to fill, or just want to say hello? Drop me a message and I'll get back to you."
+          />
 
-      <div className="py-20 md:py-32">
-        <div className="mx-auto max-w-[var(--width-content)] px-6">
-          <div className="mb-16 max-w-2xl">
-            <hr className="divider-accent mb-6" />
-            <h1 className="font-display text-5xl tracking-tight md:text-6xl">
-              Get in Touch
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
-              Have a project in mind or want to say hello? Drop me a message and
-              I&apos;ll get back to you.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1.2fr_0.8fr]">
             <ContactForm />
 
-            <div className="space-y-10">
-              <h2 className="text-2xl font-bold tracking-tight">
+            <div>
+              <h2 className="font-display text-[clamp(28px,3vw,38px)] font-black uppercase leading-[0.9] tracking-[0.02em]">
                 Other ways to reach me
               </h2>
-              <div className="space-y-5">
-                {/* Email assembled client-side to prevent bot scraping */}
-                <EmailLink />
-
+              <ul className="mt-6 border-t-[3px] border-chalk">
+                <li>
+                  <EmailLink className={rowClass} />
+                </li>
                 {socialLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-4 text-muted transition-colors hover:text-foreground"
-                  >
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors group-hover:border-accent group-hover:text-accent">
-                      <link.icon size={18} />
-                    </span>
-                    <span className="text-sm">{link.label}</span>
-                  </a>
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="me noopener noreferrer"
+                      className={rowClass}
+                    >
+                      <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-orange">
+                        {link.network}
+                      </span>
+                      <span className="font-cond text-xl font-semibold tracking-[0.04em]">
+                        {link.label}
+                      </span>
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <ContactMap />
     </main>
   );
 }

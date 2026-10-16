@@ -1,25 +1,35 @@
 import Link from "next/link";
+import { CourtLines } from "@/components/ui/court-lines";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
-      <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
-        Page not found
-      </p>
-      <h1 className="mt-4 font-display text-[10rem] leading-none tracking-tighter text-foreground/10 md:text-[14rem]">
-        404
-      </h1>
-      <p className="mt-2 text-lg text-muted">
-        This page doesn&apos;t exist.
+    <main
+      id="main"
+      className="relative flex min-h-[70vh] flex-col items-center justify-center overflow-clip px-6 py-20 text-center"
+    >
+      <CourtLines className="left-1/2 top-1/2 w-[min(900px,140vw)] -translate-x-1/2 -translate-y-1/2" />
+      <p className="eyebrow relative animate-rise">Page not found</p>
+      <div className="relative mt-4 grid h-[clamp(9rem,30vw,18rem)] place-items-center">
+        <span
+          aria-hidden="true"
+          data-number="404"
+          className="jersey animate-jersey text-[clamp(9rem,30vw,18rem)]"
+        >
+          404
+        </span>
+        <h1 className="relative animate-slam font-display text-[clamp(4rem,14vw,9rem)] font-black uppercase leading-[0.8] [animation-delay:0.2s]">
+          Airball
+        </h1>
+      </div>
+      <p className="relative mt-8 max-w-[30em] animate-rise text-lg text-chalk-muted [animation-delay:0.4s]">
+        That shot missed the rim entirely. This page doesn&apos;t exist.
       </p>
       <Link
         href="/"
-        className="group mt-10 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/25"
+        className="btn btn-primary relative mt-10 animate-rise [animation-delay:0.5s]"
       >
-        <span className="transition-transform group-hover:-translate-x-0.5">
-          &larr;
-        </span>
-        Go home
+        <span aria-hidden="true">&larr;</span>
+        Back to home court
       </Link>
     </main>
   );
