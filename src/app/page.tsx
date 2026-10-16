@@ -1,17 +1,22 @@
 import { Hero } from "@/components/home/hero";
-import { Technologies } from "@/components/home/technologies";
-import { Testimonials } from "@/components/home/testimonials";
-import { Clients } from "@/components/home/clients";
-import { FunFacts } from "@/components/home/fun-facts";
+import { BoxScore } from "@/components/home/box-score";
+import { CareerLog } from "@/components/home/career-log";
+import { SkillRatings } from "@/components/home/skill-ratings";
+import { ScoutingReports } from "@/components/home/scouting-reports";
+import { Sponsors } from "@/components/home/sponsors";
+import { DraftCta } from "@/components/home/draft-cta";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main">
       <Hero />
-      <Technologies />
-      <Testimonials />
-      <Clients />
-      <FunFacts />
+      <BoxScore />
+      <CareerLog />
+      <div className="halfcourt" aria-hidden="true" />
+      <SkillRatings />
+      <ScoutingReports />
+      <Sponsors />
+      <DraftCta />
     </main>
   );
 }

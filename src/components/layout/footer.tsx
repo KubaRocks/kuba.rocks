@@ -1,54 +1,38 @@
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { getYearsOfExperience } from "@/lib/fun-facts";
 
 const socialLinks = [
-  { href: "https://github.com/KubaRocks", icon: FaGithub, label: "GitHub" },
-  {
-    href: "https://www.linkedin.com/in/kubaflorczuk/",
-    icon: FaLinkedin,
-    label: "LinkedIn",
-  },
-  {
-    href: "https://www.instagram.com/kuba_rocks/",
-    icon: FaInstagram,
-    label: "Instagram",
-  },
-  {
-    href: "https://twitter.com/KubaRocks",
-    icon: FaXTwitter,
-    label: "X (Twitter)",
-  },
+  { href: "https://github.com/KubaRocks", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/kubaflorczuk/", label: "LinkedIn" },
+  { href: "https://www.instagram.com/kuba_rocks/", label: "Instagram" },
+  { href: "https://twitter.com/KubaRocks", label: "Twitter" },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/50">
-      <div className="mx-auto max-w-[var(--width-content)] px-6 py-12">
-        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
-          <div>
-            <p className="text-lg">
-              <span className="font-bold">kuba</span>
-              <span className="font-light text-accent">.rocks</span>
-            </p>
-            <p className="mt-1 text-sm text-muted">
-              &copy; {new Date().getFullYear()} All rights reserved.
-            </p>
-          </div>
-          <div className="flex gap-5">
-            {socialLinks.map((link) => (
+    <footer className="border-t-2 border-orange bg-deep py-9">
+      <div className="wrap flex flex-wrap items-center justify-between gap-5">
+        <div>
+          <p className="font-display text-lg font-extrabold uppercase leading-none tracking-[0.16em]">
+            Kuba Florczuk · No. {getYearsOfExperience()}
+          </p>
+          <p className="mt-2.5 font-mono text-xs uppercase tracking-[0.14em] text-amber">
+            &copy; {new Date().getFullYear()} kuba.rocks
+          </p>
+        </div>
+        <ul aria-label="Social profiles" className="flex flex-wrap gap-2">
+          {socialLinks.map((link) => (
+            <li key={link.href}>
               <a
-                key={link.href}
                 href={link.href}
                 target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-                className="text-muted-foreground transition-colors hover:text-accent"
+                rel="me noopener noreferrer"
+                className="block border border-line px-3.5 py-2.5 font-cond text-sm font-semibold uppercase leading-none tracking-[0.14em] text-chalk-muted no-underline transition-colors hover:border-orange hover:bg-orange/12 hover:text-chalk"
               >
-                <link.icon size={20} />
+                {link.label}
               </a>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );

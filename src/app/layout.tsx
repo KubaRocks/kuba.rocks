@@ -1,22 +1,44 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Outfit } from "next/font/google";
-import { GeistMono } from "geist/font/mono";
+import {
+  Barlow,
+  Barlow_Condensed,
+  Big_Shoulders,
+  Chivo_Mono,
+} from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
+const bigShoulders = Big_Shoulders({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument-serif",
+  axes: ["opsz"],
+  variable: "--font-big-shoulders",
   display: "swap",
 });
 
-const outfit = Outfit({
+const barlow = Barlow({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  weight: ["400", "500", "600"],
+  variable: "--font-barlow",
   display: "swap",
 });
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
+});
+
+const chivoMono = Chivo_Mono({
+  subsets: ["latin"],
+  variable: "--font-chivo-mono",
+  display: "swap",
+});
+
+// Years, tenure, stats and the footer year are computed at render time;
+// re-render daily so the static pages don't freeze at the deploy date.
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: {
@@ -49,11 +71,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${outfit.variable} ${GeistMono.variable}`}
+      className={`${bigShoulders.variable} ${barlow.variable} ${barlowCondensed.variable} ${chivoMono.variable}`}
     >
-      <body className="grain min-h-screen bg-background text-foreground">
+      <body className="min-h-screen bg-navy text-chalk">
+        <a
+          href="#main"
+          className="absolute left-3 top-[-60px] z-[100] bg-amber px-4 py-2.5 font-mono text-sm font-bold text-deep no-underline focus:top-3"
+        >
+          Skip to content
+        </a>
         <Header />
-        <div className="animate-in">{children}</div>
+        {children}
         <Footer />
       </body>
     </html>

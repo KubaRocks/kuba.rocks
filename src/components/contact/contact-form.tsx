@@ -5,28 +5,50 @@ import { submitContact, type ContactState } from "@/app/contact/action";
 
 const initialState: ContactState = {};
 
+const fields = [
+  {
+    name: "name",
+    label: "Name",
+    type: "text",
+    placeholder: "Your name",
+    autoComplete: "name",
+  },
+  {
+    name: "email",
+    label: "Email",
+    type: "email",
+    placeholder: "you@example.com",
+    autoComplete: "email",
+  },
+] as const;
+
+function FieldError({ id, messages }: { id: string; messages?: string[] }) {
+  if (!messages?.length) return null;
+  return (
+    <p id={id} className="mt-2 font-mono text-xs tracking-[0.04em] text-orange">
+      {messages[0]}
+    </p>
+  );
+}
+
 export function ContactForm() {
   const [state, action, pending] = useActionState(submitContact, initialState);
 
   if (state.success) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-12 text-center">
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/10 text-accent">
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <p className="text-2xl font-bold">Message sent!</p>
-        <p className="mt-2 text-muted">I&apos;ll get back to you soon.</p>
+      <div
+        role="status"
+        className="report flex flex-col items-start px-[clamp(20px,2.4vw,32px)] pb-8 pt-[26px]"
+      >
+        <span className="mb-4 rotate-[-4deg] border-2 border-stamp px-2 py-1.5 font-mono text-[11px] font-bold uppercase leading-none tracking-[0.16em] text-stamp">
+          Signed
+        </span>
+        <p className="font-display text-[clamp(32px,4vw,44px)] font-black uppercase leading-none text-navy">
+          Message received
+        </p>
+        <p className="mt-3 text-paper-muted">
+          Thanks for reaching out. I&apos;ll get back to you soon.
+        </p>
       </div>
     );
   }
@@ -34,59 +56,45 @@ export function ContactForm() {
   return (
     <form action={action} className="space-y-6">
       {state.error && (
-        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-600 dark:border-red-900 dark:bg-red-950 dark:text-red-400">
+        <p
+          role="alert"
+          className="border-l-4 border-orange bg-orange/12 px-4 py-3 text-sm text-chalk"
+        >
           {state.error}
-        </div>
+        </p>
       )}
 
-      <div>
-        <label
-          htmlFor="name"
-          className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted"
-        >
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          className="w-full rounded-lg border border-border bg-transparent px-4 py-3 text-foreground transition-colors placeholder:text-muted-foreground focus:border-accent focus:outline-none"
-          placeholder="Your name"
-        />
-        {state.fieldErrors?.name && (
-          <p className="mt-1.5 text-xs text-red-500">
-            {state.fieldErrors.name[0]}
-          </p>
-        )}
-      </div>
-
-      <div>
-        <label
-          htmlFor="email"
-          className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted"
-        >
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className="w-full rounded-lg border border-border bg-transparent px-4 py-3 text-foreground transition-colors placeholder:text-muted-foreground focus:border-accent focus:outline-none"
-          placeholder="you@example.com"
-        />
-        {state.fieldErrors?.email && (
-          <p className="mt-1.5 text-xs text-red-500">
-            {state.fieldErrors.email[0]}
-          </p>
-        )}
-      </div>
+      {fields.map((field) => {
+        const errors = state.fieldErrors?.[field.name];
+        return (
+          <div key={field.name}>
+            <label
+              htmlFor={field.name}
+              className="mb-2 block font-mono text-xs font-bold uppercase tracking-[0.18em] text-orange"
+            >
+              {field.label}
+            </label>
+            <input
+              id={field.name}
+              name={field.name}
+              type={field.type}
+              autoComplete={field.autoComplete}
+              required
+              defaultValue={state.values?.[field.name]}
+              placeholder={field.placeholder}
+              aria-invalid={errors ? true : undefined}
+              aria-describedby={errors ? `${field.name}-error` : undefined}
+              className="field"
+            />
+            <FieldError id={`${field.name}-error`} messages={errors} />
+          </div>
+        );
+      })}
 
       <div>
         <label
           htmlFor="message"
-          className="mb-2 block text-xs font-medium uppercase tracking-widest text-muted"
+          className="mb-2 block font-mono text-xs font-bold uppercase tracking-[0.18em] text-orange"
         >
           Message
         </label>
@@ -95,14 +103,16 @@ export function ContactForm() {
           name="message"
           rows={6}
           required
-          className="w-full resize-y rounded-lg border border-border bg-transparent px-4 py-3 text-foreground transition-colors placeholder:text-muted-foreground focus:border-accent focus:outline-none"
+          minLength={10}
+          defaultValue={state.values?.message}
           placeholder="Tell me about your project..."
+          aria-invalid={state.fieldErrors?.message ? true : undefined}
+          aria-describedby={
+            state.fieldErrors?.message ? "message-error" : undefined
+          }
+          className="field resize-y"
         />
-        {state.fieldErrors?.message && (
-          <p className="mt-1.5 text-xs text-red-500">
-            {state.fieldErrors.message[0]}
-          </p>
-        )}
+        <FieldError id="message-error" messages={state.fieldErrors?.message} />
       </div>
 
       {/* Honeypot */}
@@ -115,14 +125,10 @@ export function ContactForm() {
         aria-hidden="true"
       />
 
-      <button
-        type="submit"
-        disabled={pending}
-        className="group inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/25 disabled:opacity-50"
-      >
-        {pending ? "Sending..." : "Send Message"}
+      <button type="submit" disabled={pending} className="btn btn-primary">
+        {pending ? "Sending..." : "Send message"}
         {!pending && (
-          <span className="transition-transform group-hover:translate-x-0.5">
+          <span className="arrow" aria-hidden="true">
             &rarr;
           </span>
         )}

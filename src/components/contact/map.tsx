@@ -2,74 +2,52 @@
 
 import GoogleMapReact from "google-map-react";
 
+// Arena navy map: dark geometry, faint chalk labels, orange highways.
 const mapConfig = {
   styles: [
+    { elementType: "geometry", stylers: [{ color: "#0E1B2C" }] },
+    { elementType: "labels.text.fill", stylers: [{ color: "#8A93A0" }] },
+    { elementType: "labels.text.stroke", stylers: [{ color: "#08111D" }] },
+    { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
     {
-      featureType: "water",
-      elementType: "geometry",
-      stylers: [{ color: "#e9e9e9" }, { lightness: 17 }],
-    },
-    {
-      featureType: "landscape",
-      elementType: "geometry",
-      stylers: [{ color: "#f5f5f5" }, { lightness: 20 }],
-    },
-    {
-      featureType: "road.highway",
-      elementType: "geometry.fill",
-      stylers: [{ color: "#ffffff" }, { lightness: 17 }],
-    },
-    {
-      featureType: "road.highway",
+      featureType: "administrative",
       elementType: "geometry.stroke",
-      stylers: [{ color: "#ffffff" }, { lightness: 29 }, { weight: 0.2 }],
-    },
-    {
-      featureType: "road.arterial",
-      elementType: "geometry",
-      stylers: [{ color: "#ffffff" }, { lightness: 18 }],
-    },
-    {
-      featureType: "road.local",
-      elementType: "geometry",
-      stylers: [{ color: "#ffffff" }, { lightness: 16 }],
+      stylers: [{ color: "#24344A" }],
     },
     {
       featureType: "poi",
       elementType: "geometry",
-      stylers: [{ color: "#f5f5f5" }, { lightness: 21 }],
+      stylers: [{ color: "#132438" }],
     },
     {
       featureType: "poi.park",
       elementType: "geometry",
-      stylers: [{ color: "#dedede" }, { lightness: 21 }],
+      stylers: [{ color: "#10233A" }],
     },
     {
-      elementType: "labels.text.stroke",
-      stylers: [{ visibility: "on" }, { color: "#ffffff" }, { lightness: 16 }],
+      featureType: "road",
+      elementType: "geometry",
+      stylers: [{ color: "#1A2C44" }],
     },
     {
-      elementType: "labels.text.fill",
-      stylers: [{ saturation: 36 }, { color: "#333333" }, { lightness: 40 }],
+      featureType: "road.arterial",
+      elementType: "geometry",
+      stylers: [{ color: "#22364F" }],
     },
     {
-      elementType: "labels.icon",
-      stylers: [{ visibility: "off" }],
+      featureType: "road.highway",
+      elementType: "geometry",
+      stylers: [{ color: "#F26B1D" }, { lightness: -35 }],
     },
     {
       featureType: "transit",
       elementType: "geometry",
-      stylers: [{ color: "#f2f2f2" }, { lightness: 19 }],
+      stylers: [{ color: "#132438" }],
     },
     {
-      featureType: "administrative",
-      elementType: "geometry.fill",
-      stylers: [{ color: "#fefefe" }, { lightness: 20 }],
-    },
-    {
-      featureType: "administrative",
-      elementType: "geometry.stroke",
-      stylers: [{ color: "#fefefe" }, { lightness: 17 }, { weight: 1.2 }],
+      featureType: "water",
+      elementType: "geometry",
+      stylers: [{ color: "#08111D" }],
     },
   ],
 };
@@ -80,7 +58,7 @@ export function ContactMap() {
   if (!apiKey) return null;
 
   return (
-    <div className="h-[20rem] w-full md:h-[28rem]">
+    <div className="h-[20rem] w-full border-y-2 border-orange md:h-[28rem]">
       <GoogleMapReact
         bootstrapURLKeys={{ key: apiKey }}
         defaultCenter={{ lat: 52.143945434324685, lng: 21.066256059149083 }}

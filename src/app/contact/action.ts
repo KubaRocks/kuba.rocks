@@ -10,10 +10,18 @@ const contactSchema = z.object({
   mapleSyrup: z.string().max(0, "Bot detected"),
 });
 
+export type ContactValues = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 export type ContactState = {
   success?: boolean;
   error?: string;
   fieldErrors?: Record<string, string[]>;
+  /** Submitted values, returned on failure so the form can be refilled */
+  values?: ContactValues;
 };
 
 export async function submitContact(
@@ -21,17 +29,19 @@ export async function submitContact(
   formData: FormData
 ): Promise<ContactState> {
   const raw = {
-    name: formData.get("name") as string,
-    email: formData.get("email") as string,
-    message: formData.get("message") as string,
-    mapleSyrup: formData.get("mapleSyrup") as string,
+    name: String(formData.get("name") ?? ""),
+    email: String(formData.get("email") ?? ""),
+    message: String(formData.get("message") ?? ""),
+    mapleSyrup: String(formData.get("mapleSyrup") ?? ""),
   };
+  const values = { name: raw.name, email: raw.email, message: raw.message };
 
   const result = contactSchema.safeParse(raw);
 
   if (!result.success) {
     return {
       fieldErrors: result.error.flatten().fieldErrors as Record<string, string[]>,
+      values,
     };
   }
 
@@ -39,6 +49,6 @@ export async function submitContact(
     await sendContactEmail(result.data);
     return { success: true };
   } catch {
-    return { error: "Failed to send message. Please try again." };
+    return { error: "Failed to send message. Please try again.", values };
   }
 }

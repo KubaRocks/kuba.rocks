@@ -6,7 +6,7 @@ import type {
   Client,
   Experience,
   Education,
-  Technology,
+  SkillTier,
 } from "./types";
 
 const dataDir = join(process.cwd(), "data");
@@ -32,6 +32,6 @@ export function getEducation(): Education[] {
   return loadJSON5<Education[]>("education.json5");
 }
 
-export function getTechnologies(): Technology[] {
-  return loadJSON5<Technology[]>("technologies.json5");
+export function getSkillTiers(): SkillTier[] {
+  return loadJSON5<SkillTier[]>("skills.json5");
 }

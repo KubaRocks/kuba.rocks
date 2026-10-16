@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -7,19 +10,30 @@ const navItems = [
 ];
 
 export function Nav() {
+  const pathname = usePathname();
+
   return (
-    <nav className="hidden md:flex items-center gap-8">
-      {navItems.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          className="relative text-sm font-medium uppercase tracking-widest text-muted transition-colors hover:text-foreground"
-        >
-          {item.label}
-        </Link>
-      ))}
+    <nav aria-label="Main">
+      <ul className="flex gap-[clamp(14px,3vw,36px)]">
+        {navItems.map((item) => {
+          const active = pathname === item.href;
+          return (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`block border-b-2 py-2 font-cond text-[15px] font-semibold uppercase leading-none tracking-[0.16em] no-underline transition-colors hover:border-orange hover:text-chalk ${
+                  active
+                    ? "border-orange text-chalk"
+                    : "border-transparent text-chalk-muted"
+                }`}
+              >
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 }
-
-export { navItems };
