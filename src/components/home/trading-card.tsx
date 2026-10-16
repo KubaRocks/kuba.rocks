@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 interface TradingCardProps {
+  jersey: number;
   years: number;
   teams: number;
   repos: number;
@@ -17,6 +18,7 @@ interface TradingCardProps {
  * and on click/tap or Enter/Space.
  */
 export function TradingCard({
+  jersey,
   years,
   teams,
   repos,
@@ -62,7 +64,7 @@ export function TradingCard({
               aria-hidden="true"
               className="absolute left-2 top-2 grid h-[46px] w-[46px] place-items-center rounded-full border-2 border-chalk bg-deep font-display text-2xl font-black leading-none"
             >
-              {years}
+              {jersey}
             </span>
             <span className="clip-tag absolute right-0 top-2.5 bg-chalk py-1.5 pl-2.5 pr-2 font-mono text-[11px] font-bold uppercase leading-none tracking-[0.14em] text-deep">
               {currentTeam}
@@ -84,9 +86,9 @@ export function TradingCard({
         {/* Back */}
         <div className="card-face card-back">
           <div className="flex items-baseline justify-between bg-orange px-2.5 py-1.5 font-display text-lg font-black uppercase leading-none tracking-[0.04em] text-deep">
-            No. {years} Florczuk
+            No. {jersey} Florczuk
             <small className="font-mono text-[10px] font-bold tracking-[0.08em]">
-              CARD {years}/{years}
+              CARD {jersey}/{jersey}
             </small>
           </div>
           <div className="grid grid-cols-[54%_1fr] gap-2.5 p-2.5">

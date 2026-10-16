@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getYearsOfExperience } from "@/lib/fun-facts";
+import { JERSEY_NUMBER } from "@/lib/jersey";
 import { Nav } from "./nav";
 
 export function Header() {
@@ -15,7 +15,7 @@ export function Header() {
             aria-hidden="true"
             className="clip-patch grid h-10 w-10 place-items-center bg-orange font-display text-[22px] font-black leading-none text-deep"
           >
-            {getYearsOfExperience()}
+            {JERSEY_NUMBER}
           </span>
           <span className="hidden font-display text-xl font-extrabold uppercase leading-none tracking-[0.06em] sm:inline">
             Kuba<span className="text-orange">.</span>Rocks

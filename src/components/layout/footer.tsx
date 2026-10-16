@@ -1,4 +1,4 @@
-import { getYearsOfExperience } from "@/lib/fun-facts";
+import { JERSEY_NUMBER } from "@/lib/jersey";
 
 const socialLinks = [
   { href: "https://github.com/KubaRocks", label: "GitHub" },
@@ -13,7 +13,7 @@ export function Footer() {
       <div className="wrap flex flex-wrap items-center justify-between gap-5">
         <div>
           <p className="font-display text-lg font-extrabold uppercase leading-none tracking-[0.16em]">
-            Kuba Florczuk · No. {getYearsOfExperience()}
+            Kuba Florczuk · No. {JERSEY_NUMBER}
           </p>
           <p className="mt-2.5 font-mono text-xs uppercase tracking-[0.14em] text-amber">
             &copy; {new Date().getFullYear()} kuba.rocks

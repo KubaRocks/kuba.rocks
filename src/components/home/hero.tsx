@@ -6,10 +6,12 @@ import {
   getCoffeeConsumed,
   GITHUB_REPOS,
 } from "@/lib/fun-facts";
+import { JERSEY_NUMBER } from "@/lib/jersey";
 import { CourtLines } from "@/components/ui/court-lines";
 import { TradingCard } from "./trading-card";
 
 export function Hero() {
+  const jersey = JERSEY_NUMBER;
   const years = getYearsOfExperience();
   const experience = getExperience();
   const currentTeam = getCurrentTeam(experience);
@@ -33,7 +35,7 @@ export function Hero() {
             order follows what is on screen; desktop places the card in column 2. */}
         <div className="relative grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] lg:grid-rows-[1fr_auto_auto_auto_auto_1fr] lg:gap-x-6">
           <p className="eyebrow animate-rise lg:col-start-1 lg:row-start-2 [animation-delay:0.1s] max-sm:gap-2 max-sm:text-[11px] max-sm:tracking-[0.12em] max-sm:before:w-5">
-            Player profile <span aria-hidden="true">·</span> No. {years}{" "}
+            Player profile <span aria-hidden="true">·</span> No. {jersey}{" "}
             <span aria-hidden="true">·</span> Warsaw
           </p>
           <h1
@@ -50,13 +52,14 @@ export function Hero() {
           <div className="relative grid place-items-center lg:col-start-2 lg:row-[1/-1] lg:self-center pb-2.5 pt-[50px] [--card-w:min(78vw,300px)] sm:[--card-w:clamp(250px,25vw,340px)] lg:min-h-[calc(var(--card-w)*1.6)] lg:pb-[30px] lg:pt-10">
             <div
               aria-hidden="true"
-              data-number={years}
+              data-number={jersey}
               className="jersey animate-jersey text-[calc(var(--card-w)*1.45)] sm:text-[calc(var(--card-w)*1.8)]"
             >
-              {years}
+              {jersey}
             </div>
             <div className="relative z-[2] animate-card">
               <TradingCard
+                jersey={jersey}
                 years={years}
                 teams={getTeamCount(experience)}
                 repos={GITHUB_REPOS}
