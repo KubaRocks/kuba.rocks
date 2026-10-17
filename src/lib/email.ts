@@ -1,5 +1,14 @@
 import { ServerClient } from "postmark";
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function sendContactEmail({
   name,
   email,
@@ -18,10 +27,10 @@ export async function sendContactEmail({
     Subject: `Message from ${name} — kuba.rocks contact form`,
     HtmlBody: `
       <h2>New message from kuba.rocks</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
       <hr />
-      <p>${message.replace(/\n/g, "<br />")}</p>
+      <p>${escapeHtml(message).replace(/\r\n?|\n/g, "<br />")}</p>
     `,
     MessageStream: "outbound",
   });

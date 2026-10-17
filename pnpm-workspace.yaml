@@ -1,2 +1,5 @@
 allowBuilds:
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - eslint@10.13.0
+  - next@16.4.2

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["npm", "github-actions"],
+  "timezone": "Europe/Warsaw",
+  "schedule": ["before 8am on monday"],
+  "rangeStrategy": "bump",
+  "minimumReleaseAge": "3 days",
+  "packageRules": [
+    {
+      "matchPackageNames": ["next", "@next/*", "eslint-config-next"],
+      "groupName": "Next.js"
+    },
+    {
+      "matchPackageNames": ["react", "react-dom", "@types/react*"],
+      "groupName": "React"
+    },
+    {
+      "matchPackageNames": ["tailwindcss", "@tailwindcss/*"],
+      "groupName": "Tailwind CSS"
+    },
+    {
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<6.0.0"
+    },
+    {
+      "matchPackageNames": ["@types/node"],
+      "allowedVersions": "<25.0.0"
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  }
+}
