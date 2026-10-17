@@ -89,7 +89,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-navy text-chalk">
         <a
           href="#main"
-          className="absolute left-3 top-[-60px] z-[100] bg-amber px-4 py-2.5 font-mono text-sm font-bold text-on-accent no-underline focus:top-3"
+          className="absolute left-3 top-[-60px] z-[100] bg-amber px-4 py-2.5 font-mono text-sm font-bold text-navy no-underline focus:top-3"
         >
           Skip to content
         </a>
