@@ -16,7 +16,7 @@ export function DraftCta() {
       </svg>
       <div className="wrap relative">
         <p className="inline-flex font-mono text-xs font-bold uppercase leading-none tracking-[0.2em]">
-          <span className="border border-amber bg-amber px-3.5 py-[9px] text-on-accent">
+          <span className="border border-amber bg-amber px-3.5 py-[9px] text-navy">
             Final
           </span>
           <span className="border border-line px-3.5 py-[9px]">On the clock</span>
