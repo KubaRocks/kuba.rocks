@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import {
   Barlow,
   Barlow_Condensed,
-  Big_Shoulders,
   Chivo_Mono,
 } from "next/font/google";
+import localFont from "next/font/local";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
-const bigShoulders = Big_Shoulders({
-  subsets: ["latin"],
-  axes: ["opsz"],
+const bigShoulders = localFont({
+  src: "./fonts/big-shoulders.woff2",
+  weight: "100 900",
+  style: "normal",
   variable: "--font-big-shoulders",
   display: "swap",
 });
