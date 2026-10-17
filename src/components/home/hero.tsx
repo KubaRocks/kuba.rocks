@@ -7,6 +7,7 @@ import {
   GITHUB_REPOS,
 } from "@/lib/fun-facts";
 import { JERSEY_NUMBER } from "@/lib/jersey";
+import { CV_PATH } from "@/lib/site";
 import { CourtLines } from "@/components/ui/court-lines";
 import { TradingCard } from "./trading-card";
 
@@ -91,7 +92,7 @@ export function Hero() {
               Draft Kuba <span className="arrow" aria-hidden="true">&rarr;</span>
             </Link>
             <a
-              href="/assets/me/CV - Kuba Florczuk - 2026 EN.pdf"
+              href={CV_PATH}
               download
               className="btn max-sm:flex-auto"
             >

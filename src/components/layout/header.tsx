@@ -9,7 +9,7 @@ export function Header() {
       <div className="wrap flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
-          aria-label="Kuba Florczuk, home"
+          aria-label="Kuba.Rocks, home"
           className="flex items-center gap-3 no-underline"
         >
           <span
