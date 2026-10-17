@@ -4,6 +4,13 @@
    BOX SCORE — Design System
    A pro player profile for kuba.rocks: arena navy,
    hardwood orange, chalk lines, scoreboard amber.
+
+   Two schemes: night game (dark, the @theme values)
+   and day game (light, the overrides below). Day applies
+   when the OS prefers light, or when the visitor picks it
+   with the header toggle (html[data-theme]).
+   Token names describe the night palette; by day "navy"
+   is the page paper and "chalk" is the ink.
    ═══════════════════════════════════════════════ */
 
 @theme {
@@ -17,8 +24,11 @@
   --color-chalk-muted: rgb(244 241 234 / 0.74);
   --color-chalk-faint: rgb(244 241 234 / 0.5);
   --color-line: rgb(244 241 234 / 0.12);
+  /* Text on orange and amber fills */
+  --color-on-accent: #08111D;
 
   /* Paper used by scouting reports */
+  --color-paper: #F4F1EA;
   --color-paper-ink: #1A2230;
   --color-paper-muted: #4A5466;
   --color-stamp: #C2410C;
@@ -37,6 +47,19 @@
   --ease-out-snap: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+/* Day game: the OS prefers light and no theme is picked, or light is picked */
+@custom-variant day {
+  &:where([data-theme="light"], [data-theme="light"] *) {
+    @slot;
+  }
+
+  @media (prefers-color-scheme: light) {
+    &:where(:root:not([data-theme]), :root:not([data-theme]) *) {
+      @slot;
+    }
+  }
+}
+
 /* Centered content column with fluid side padding */
 @utility wrap {
   max-width: var(--width-content);
@@ -53,7 +76,26 @@
   }
 
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
+  }
+
+  /* Day palette. Text colors keep 4.5:1 on both paper and deep. */
+  :root {
+    @variant day {
+      color-scheme: light;
+      --color-navy: #F3EFE7;
+      --color-navy-2: #ECE6DB;
+      --color-deep: #E8E2D6;
+      --color-orange: #AD3B09;
+      --color-amber: #875500;
+      --color-chalk: #0E1B2C;
+      --color-chalk-muted: rgb(14 27 44 / 0.76);
+      --color-chalk-faint: rgb(14 27 44 / 0.66);
+      --color-line: rgb(14 27 44 / 0.14);
+      --color-on-accent: #FFF8F0;
+      --color-paper: #FFFDF8;
+    }
   }
 
   body {
@@ -75,7 +117,7 @@
 
   ::selection {
     background-color: var(--color-orange);
-    color: var(--color-deep);
+    color: var(--color-on-accent);
   }
 
   :focus-visible {
@@ -110,7 +152,7 @@
   .btn-primary {
     background-color: var(--color-orange);
     border-color: var(--color-orange);
-    color: var(--color-deep);
+    color: var(--color-on-accent);
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
   }
 
@@ -121,7 +163,7 @@
 
   /* The clip-path would cut off an outside outline, so draw focus inside the shape */
   .btn-primary:focus-visible {
-    outline: 3px solid var(--color-deep);
+    outline: 3px solid var(--color-on-accent);
     outline-offset: -7px;
   }
 
@@ -178,7 +220,7 @@
     position: absolute;
     pointer-events: none;
     fill: none;
-    stroke: rgb(244 241 234 / 0.1);
+    stroke: color-mix(in srgb, var(--color-chalk) 10%, transparent);
     stroke-width: 2;
   }
 
@@ -186,7 +228,7 @@
   .halfcourt {
     position: relative;
     height: 0;
-    border-top: 2px solid rgb(244 241 234 / 0.14);
+    border-top: 2px solid color-mix(in srgb, var(--color-chalk) 14%, transparent);
   }
 
   .halfcourt::after {
@@ -197,7 +239,7 @@
     width: 120px;
     height: 120px;
     transform: translateX(-50%);
-    border: 2px solid rgb(244 241 234 / 0.14);
+    border: 2px solid color-mix(in srgb, var(--color-chalk) 14%, transparent);
     border-radius: 50%;
   }
 
@@ -214,7 +256,7 @@
     letter-spacing: -0.03em;
     color: transparent;
     -webkit-text-stroke: 3px var(--color-orange);
-    background: radial-gradient(rgb(242 107 29 / 0.42) 1.3px, transparent 1.6px) 0 0 / 8px 8px;
+    background: radial-gradient(color-mix(in srgb, var(--color-orange) 42%, transparent) 1.3px, transparent 1.6px) 0 0 / 8px 8px;
     -webkit-background-clip: text;
     background-clip: text;
     user-select: none;
@@ -228,8 +270,23 @@
     top: 0;
     z-index: -1;
     transform: translate(12px, 12px);
-    -webkit-text-stroke: 1.5px rgb(255 176 0 / 0.45);
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--color-amber) 45%, transparent);
     background: none;
+  }
+
+  /* Physical objects that stay night-colored in both schemes */
+  .card-face,
+  .scoreboard {
+    color-scheme: dark;
+    --color-deep: --theme(--color-deep inline);
+    --color-orange: --theme(--color-orange inline);
+    --color-amber: --theme(--color-amber inline);
+    --color-chalk: --theme(--color-chalk inline);
+    --color-chalk-muted: --theme(--color-chalk-muted inline);
+    --color-chalk-faint: --theme(--color-chalk-faint inline);
+    --color-line: --theme(--color-line inline);
+    --color-on-accent: --theme(--color-on-accent inline);
+    color: var(--color-chalk);
   }
 
   /* Trading card: front/back faces flipped in 3D. Width comes from --card-w. */
@@ -327,7 +384,7 @@
     min-width: 88px;
     padding: 10px 12px;
     background-color: var(--color-orange);
-    color: var(--color-deep);
+    color: var(--color-on-accent);
     font: 900 34px/0.85 var(--font-display);
     font-variation-settings: "opsz" 72;
     text-transform: uppercase;
@@ -525,7 +582,7 @@
 
   .career-log thead th {
     padding-block: 14px;
-    border-bottom-color: rgb(244 241 234 / 0.3);
+    border-bottom-color: color-mix(in srgb, var(--color-chalk) 30%, transparent);
     font: 700 12px/1 var(--font-mono);
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -537,7 +594,7 @@
   }
 
   .career-log tbody tr:hover {
-    background-color: rgb(242 107 29 / 0.12);
+    background-color: color-mix(in srgb, var(--color-orange) 12%, transparent);
     box-shadow: inset 4px 0 0 var(--color-orange);
   }
 
@@ -546,7 +603,7 @@
     padding-block: 18px;
     border-top: 3px solid var(--color-chalk);
     border-bottom: 3px solid var(--color-chalk);
-    background-color: rgb(244 241 234 / 0.04);
+    background-color: color-mix(in srgb, var(--color-chalk) 4%, transparent);
   }
 
   @media (width < 40rem) {
@@ -585,7 +642,7 @@
       padding: 18px 10px;
       border-top: 3px solid var(--color-chalk);
       border-bottom: 3px solid var(--color-chalk);
-      background-color: rgb(244 241 234 / 0.04);
+      background-color: color-mix(in srgb, var(--color-chalk) 4%, transparent);
     }
 
     .career-log [data-col="team"] {
@@ -639,10 +696,14 @@
   /* Scouting report sheet: lined paper with a clip */
   .report {
     position: relative;
-    background-color: var(--color-chalk);
+    background-color: var(--color-paper);
     background-image: repeating-linear-gradient(transparent 0 27px, rgb(14 27 44 / 0.07) 27px 28px);
     color: var(--color-paper-ink);
     box-shadow: 0 24px 40px -24px rgb(0 0 0 / 0.8);
+
+    @variant day {
+      box-shadow: 0 24px 40px -24px rgb(14 27 44 / 0.35);
+    }
   }
 
   .report::before {
@@ -675,11 +736,16 @@
     }
   }
 
-  /* Client logos rendered as chalk on navy */
+  /* Client logos rendered as chalk on navy, or ink on paper by day */
   .logo-chalk {
     filter: brightness(0) invert(0.95) sepia(0.12);
     opacity: 0.78;
     transition: opacity 0.2s, transform 0.2s;
+
+    @variant day {
+      filter: brightness(0);
+      opacity: 0.72;
+    }
   }
 
   .group:hover .logo-chalk {
@@ -691,7 +757,7 @@
   .field {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid rgb(244 241 234 / 0.28);
+    border: 1px solid color-mix(in srgb, var(--color-chalk) 28%, transparent);
     background-color: var(--color-deep);
     color: var(--color-chalk);
     font: 400 17px/1.5 var(--font-sans);
@@ -704,7 +770,7 @@
   }
 
   .field:hover {
-    border-color: rgb(244 241 234 / 0.5);
+    border-color: color-mix(in srgb, var(--color-chalk) 50%, transparent);
   }
 
   .field:focus {

@@ -14,7 +14,7 @@ export function Nav() {
 
   return (
     <nav aria-label="Main">
-      <ul className="flex gap-[clamp(14px,3vw,36px)]">
+      <ul className="flex gap-[clamp(10px,3vw,36px)]">
         {navItems.map((item) => {
           const active = pathname === item.href;
           return (
