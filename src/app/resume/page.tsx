@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getExperience, getEducation } from "@/lib/data";
 import { getTenureYears, isLeadershipRole } from "@/lib/career";
+import { CV_PATH, pageMetadata } from "@/lib/site";
 import { ResumeItem } from "@/components/resume/resume-item";
 import { CourtLines } from "@/components/ui/court-lines";
 import { SectionHead } from "@/components/ui/section-head";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Resume",
-};
+  description:
+    "Kuba Florczuk's career log: every role since 2004, from PHP and Symfony to TypeScript, React, Next.js, Go and LLM features. Download the CV as a PDF.",
+  path: "/resume",
+});
 
 function formatMonth(date: string): string {
   return new Date(date).toLocaleDateString("en-US", {
@@ -47,7 +51,7 @@ export default function ResumePage() {
           />
           <div className="flex flex-wrap gap-3.5">
             <a
-              href="/assets/me/CV - Kuba Florczuk - 2026 EN.pdf"
+              href={CV_PATH}
               download
               className="btn btn-primary"
             >

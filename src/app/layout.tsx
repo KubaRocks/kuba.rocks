@@ -7,8 +7,17 @@ import {
 import localFont from "next/font/local";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { StructuredData } from "@/components/layout/structured-data";
 import { ThemeColor } from "@/components/layout/theme-color";
 import { THEME_SCRIPT } from "@/lib/theme";
+import {
+  DEFAULT_TITLE,
+  PERSON,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+  pageMetadata,
+} from "@/lib/site";
 import "./globals.css";
 
 const bigShoulders = localFont({
@@ -44,22 +53,13 @@ const chivoMono = Chivo_Mono({
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
+  ...pageMetadata({ description: SITE_DESCRIPTION, path: "/" }),
   title: {
-    default: "kuba.rocks — Full-Stack Developer",
-    template: "%s | kuba.rocks",
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Kuba Florczuk — Full-Stack Developer and Team Leader based in Warsaw, Poland.",
-  metadataBase: new URL("https://kuba.rocks"),
-  openGraph: {
-    title: "kuba.rocks — Full-Stack Developer",
-    description:
-      "Kuba Florczuk — Full-Stack Developer and Team Leader based in Warsaw, Poland.",
-    url: "https://kuba.rocks",
-    siteName: "kuba.rocks",
-    locale: "en_US",
-    type: "website",
-  },
+  metadataBase: new URL(SITE_URL),
+  authors: [{ name: PERSON.name, url: SITE_URL }],
   robots: {
     index: true,
     follow: true,
@@ -96,6 +96,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <StructuredData />
       </body>
     </html>
   );

@@ -4,10 +4,14 @@ import { ContactMap } from "@/components/contact/map";
 import { EmailLink } from "@/components/contact/email-link";
 import { CourtLines } from "@/components/ui/court-lines";
 import { SectionHead } from "@/components/ui/section-head";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
-};
+  description:
+    "Get in touch with Kuba Florczuk about a project, a role on your team or just to say hello. Contact form, email, GitHub and LinkedIn.",
+  path: "/contact",
+});
 
 const socialLinks = [
   { href: "https://github.com/KubaRocks", network: "GitHub", label: "KubaRocks" },

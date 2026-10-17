@@ -40,6 +40,18 @@ pnpm audit --prod
 pnpm build
 ```
 
+Browser tests run with Playwright against the production build. Install
+Chromium once, build, then run them; Playwright starts `next start` on port 3100:
+
+```sh
+pnpm exec playwright install chromium
+pnpm build
+pnpm test:e2e
+```
+
+They cover the theme switch, page errors, 320px layouts in both themes, contact
+form validation, and the search and share files listed below.
+
 `pnpm typecheck` generates Next.js route types before checking TypeScript.
 The email regression tests use Node's built-in test runner and mock Postmark's
 HTTP transport. They do not send email or load local environment files.
@@ -51,6 +63,17 @@ GitHub Actions runs these checks for pull requests and pushes to `main`.
 It also audits development dependencies with the exception below. No production
 credentials are needed in CI. To run the production build locally, run
 `pnpm build` followed by `pnpm start`.
+
+## Search and sharing
+
+- `src/app/opengraph-image.tsx` draws the link preview image. It uses static
+  font cuts described in `src/app/fonts/README.md`.
+- `src/app/sitemap.ts` and `src/app/robots.ts` serve `/sitemap.xml` and `/robots.txt`.
+- `src/components/layout/structured-data.tsx` adds schema.org Person data.
+- `src/app/llms.txt/route.ts` serves `/llms.txt`, the site in Markdown for
+  language models, built from the files in `data`.
+- Page titles, descriptions and canonical URLs come from `pageMetadata` in
+  `src/lib/site.ts`.
 
 ## Maintain dependencies
 
