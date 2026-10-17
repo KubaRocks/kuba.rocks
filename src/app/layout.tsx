@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Barlow,
   Barlow_Condensed,
@@ -7,6 +7,8 @@ import {
 import localFont from "next/font/local";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ThemeColor } from "@/components/layout/theme-color";
+import { THEME_SCRIPT } from "@/lib/theme";
 import "./globals.css";
 
 const bigShoulders = localFont({
@@ -64,6 +66,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -73,11 +79,17 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bigShoulders.variable} ${barlow.variable} ${barlowCondensed.variable} ${chivoMono.variable}`}
+      // The theme script below sets data-theme before React hydrates
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <ThemeColor />
+      </head>
       <body className="min-h-screen bg-navy text-chalk">
         <a
           href="#main"
-          className="absolute left-3 top-[-60px] z-[100] bg-amber px-4 py-2.5 font-mono text-sm font-bold text-deep no-underline focus:top-3"
+          className="absolute left-3 top-[-60px] z-[100] bg-amber px-4 py-2.5 font-mono text-sm font-bold text-on-accent no-underline focus:top-3"
         >
           Skip to content
         </a>

@@ -27,7 +27,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative overflow-clip bg-navy bg-[radial-gradient(1200px_600px_at_75%_30%,rgb(242_107_29/0.1),transparent_60%),radial-gradient(900px_700px_at_10%_100%,rgb(8_17_29/0.9),transparent_70%)] pt-[clamp(40px,6vw,80px)]"
+      className="relative overflow-clip bg-navy bg-[radial-gradient(1200px_600px_at_75%_30%,color-mix(in_srgb,var(--color-orange)_10%,transparent),transparent_60%),radial-gradient(900px_700px_at_10%_100%,color-mix(in_srgb,var(--color-deep)_90%,transparent),transparent_70%)] pt-[clamp(40px,6vw,80px)]"
     >
       <CourtLines className="-right-[8%] -top-[30px] w-[min(1150px,140vw)]" />
       <div className="wrap">

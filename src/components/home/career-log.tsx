@@ -103,7 +103,7 @@ export function CareerLog() {
 
         <div className="mt-7 flex flex-wrap items-center justify-between gap-5">
           <p className="font-mono text-xs leading-[1.4] tracking-[0.06em] text-chalk-faint">
-            <span aria-hidden="true" className="mr-2 inline-grid h-4 w-4 place-items-center bg-orange font-display text-[11px] font-black leading-none text-deep">
+            <span aria-hidden="true" className="mr-2 inline-grid h-4 w-4 place-items-center bg-orange font-display text-[11px] font-black leading-none text-on-accent">
               C
             </span>
             Leadership role. Not shown: {notShown.join(", ")}.

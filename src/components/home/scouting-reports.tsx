@@ -41,13 +41,13 @@ export function ScoutingReports() {
                   className="h-16 w-16 border-2 border-paper-ink object-cover grayscale contrast-[1.05]"
                 />
                 <p className="font-mono text-xs uppercase leading-[1.6] tracking-[0.06em] text-paper-muted">
-                  <b className="block font-display text-[22px] font-extrabold leading-[1.05] tracking-[0.04em] text-navy">
+                  <b className="block font-display text-[22px] font-extrabold leading-[1.05] tracking-[0.04em] text-paper-ink">
                     {t.name}
                   </b>
                   Scout · {t.title}
                 </p>
               </div>
-              <p className="mb-2.5 mt-[18px] font-display text-[clamp(24px,2.4vw,30px)] font-black uppercase leading-none text-navy">
+              <p className="mb-2.5 mt-[18px] font-display text-[clamp(24px,2.4vw,30px)] font-black uppercase leading-none text-paper-ink">
                 <span className="mb-2 block font-mono text-[11px] font-bold leading-none tracking-[0.18em] text-[#B8460C]">
                   Key note
                 </span>

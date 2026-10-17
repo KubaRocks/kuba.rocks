@@ -43,7 +43,7 @@ export function ContactForm() {
         <span className="mb-4 rotate-[-4deg] border-2 border-stamp px-2 py-1.5 font-mono text-[11px] font-bold uppercase leading-none tracking-[0.16em] text-stamp">
           Signed
         </span>
-        <p className="font-display text-[clamp(32px,4vw,44px)] font-black uppercase leading-none text-navy">
+        <p className="font-display text-[clamp(32px,4vw,44px)] font-black uppercase leading-none text-paper-ink">
           Message received
         </p>
         <p className="mt-3 text-paper-muted">

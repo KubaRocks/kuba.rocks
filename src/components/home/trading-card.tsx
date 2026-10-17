@@ -85,7 +85,7 @@ export function TradingCard({
 
         {/* Back */}
         <div className="card-face card-back">
-          <div className="flex items-baseline justify-between bg-orange px-2.5 py-1.5 font-display text-lg font-black uppercase leading-none tracking-[0.04em] text-deep">
+          <div className="flex items-baseline justify-between bg-orange px-2.5 py-1.5 font-display text-lg font-black uppercase leading-none tracking-[0.04em] text-on-accent">
             No. {jersey} Florczuk
             <small className="font-mono text-[10px] font-bold tracking-[0.08em]">
               CARD {jersey}/{jersey}

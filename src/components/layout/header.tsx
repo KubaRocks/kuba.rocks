@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { JERSEY_NUMBER } from "@/lib/jersey";
 import { Nav } from "./nav";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   return (
@@ -13,7 +14,7 @@ export function Header() {
         >
           <span
             aria-hidden="true"
-            className="clip-patch grid h-10 w-10 place-items-center bg-orange font-display text-[22px] font-black leading-none text-deep"
+            className="clip-patch grid h-10 w-10 place-items-center bg-orange font-display text-[22px] font-black leading-none text-on-accent"
           >
             {JERSEY_NUMBER}
           </span>
@@ -21,7 +22,10 @@ export function Header() {
             Kuba<span className="text-orange">.</span>Rocks
           </span>
         </Link>
-        <Nav />
+        <div className="flex items-center gap-[clamp(10px,3vw,36px)]">
+          <Nav />
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

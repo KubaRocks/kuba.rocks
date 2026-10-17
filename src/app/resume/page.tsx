@@ -30,7 +30,7 @@ export default function ResumePage() {
     <main id="main">
       <section
         aria-labelledby="resume-title"
-        className="relative overflow-clip bg-[radial-gradient(1000px_500px_at_80%_0%,rgb(242_107_29/0.1),transparent_60%)] pb-[clamp(48px,6vw,80px)] pt-[clamp(48px,7vw,96px)]"
+        className="relative overflow-clip bg-[radial-gradient(1000px_500px_at_80%_0%,color-mix(in_srgb,var(--color-orange)_10%,transparent),transparent_60%)] pb-[clamp(48px,6vw,80px)] pt-[clamp(48px,7vw,96px)]"
       >
         <CourtLines className="-right-[10%] -top-[60px] w-[min(900px,120vw)]" />
         <div className="wrap relative">

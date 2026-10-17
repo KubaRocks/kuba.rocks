@@ -4,7 +4,7 @@ export function DraftCta() {
   return (
     <section
       aria-labelledby="draft-title"
-      className="relative overflow-clip bg-navy bg-[radial-gradient(700px_400px_at_50%_50%,rgb(242_107_29/0.16),transparent_70%)] py-[clamp(64px,8vw,110px)] text-center before:absolute before:inset-x-0 before:top-1/2 before:border-t-2 before:border-chalk/9"
+      className="relative overflow-clip bg-navy bg-[radial-gradient(700px_400px_at_50%_50%,color-mix(in_srgb,var(--color-orange)_16%,transparent),transparent_70%)] py-[clamp(64px,8vw,110px)] text-center before:absolute before:inset-x-0 before:top-1/2 before:border-t-2 before:border-chalk/9"
     >
       <svg
         viewBox="0 0 200 200"
@@ -16,7 +16,7 @@ export function DraftCta() {
       </svg>
       <div className="wrap relative">
         <p className="inline-flex font-mono text-xs font-bold uppercase leading-none tracking-[0.2em]">
-          <span className="border border-amber bg-amber px-3.5 py-[9px] text-deep">
+          <span className="border border-amber bg-amber px-3.5 py-[9px] text-on-accent">
             Final
           </span>
           <span className="border border-line px-3.5 py-[9px]">On the clock</span>

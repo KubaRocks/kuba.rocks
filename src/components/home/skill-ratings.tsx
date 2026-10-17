@@ -33,7 +33,7 @@ function TierItems({ tier }: { tier: SkillTier }) {
               <b className="mt-1.5 block font-display text-[22px] font-black uppercase leading-none tracking-[0.02em]">
                 {item.name}
               </b>
-              <small className="mt-1.5 block font-mono text-[10px] leading-[1.2] tracking-[0.08em] text-[#3D4757]">
+              <small className="mt-1.5 block font-mono text-[10px] leading-[1.2] tracking-[0.08em] text-deep/75">
                 {item.note}
               </small>
             </li>
