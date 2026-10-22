@@ -5,7 +5,7 @@ form sends email through Postmark. Content lives in `src`, `data`, and `content`
 
 ## Run locally
 
-1. Install Node.js 24, as specified in `.node-version`.
+1. Install Node.js 24.22.1, as specified in `.node-version`.
 2. Enable Corepack with `corepack enable`. If your Node installation does not
    include Corepack, install it with `npm install --global corepack` first.
    Corepack uses the pnpm version pinned in `package.json`.
@@ -92,6 +92,11 @@ TypeScript stays at 5.9.3 because the installed `typescript-eslint` parser suppo
 TypeScript versions below 6.1. Review parser support before enabling TypeScript
 major updates. Node types stay on 24.x to match the runtime. Update the runtime,
 types, `engines`, and Renovate rule together when moving to another Node major.
+
+Node.js 24.22.1 is the minimum supported release because it fixes
+[CVE-2026-111497](https://nodejs.org/en/blog/release/v24.22.1/) and the other
+October 2026 Node.js security issues. CI uses the version in `.node-version`.
+Vercel selects Node.js 24.x from `engines.node` and manages its patch version.
 
 ESLint 10 runs with the current Next.js configuration, but `eslint-plugin-import`,
 `eslint-plugin-jsx-a11y`, and `eslint-plugin-react` still declare peer support only
